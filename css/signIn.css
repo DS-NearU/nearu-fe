@@ -1,0 +1,31 @@
+.outerbox{
+    display: flex;
+    flex-direction: row;
+    width: 1435px;
+    height: 697px;
+    padding: 142px 0px 0px 38px;
+}
+
+.outerbox_leftBox{
+    padding: 131px 0px 0px 106px;
+}
+
+.outerbox_rightBox{
+    padding: 29px 0px 0px 617px; 
+}
+
+.signInText{
+    padding: 24px 0px 0px 20px;
+}
+
+.signUpText{
+    padding: 30px 0px 0px 20px;
+}
+
+.loginInput{
+    padding: 207px 0px 0px 20px;
+}
+
+.remember{
+    padding: 448px 0px 0px 20px;
+}
