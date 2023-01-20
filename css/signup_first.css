@@ -1,0 +1,30 @@
+.outerbox{
+    display: flex;
+    flex-direction: column;
+}
+
+.index{
+    display: flex; 
+    flex-direction: row;
+    width: 717px;
+    height: 109px;
+    justify-content: space-between;
+}
+
+.index_num{
+    width: 70px;
+    height: 70px;
+    font-size: 50px;
+    border-radius: 100%;
+    background-color: aqua;
+    text-align: center;
+}
+
+.index_selected_num{
+    width: 70px;
+    height: 70px;
+    font-size: 50px;
+    border-radius: 100%;
+    background-color: blue;
+    text-align: center;
+}
