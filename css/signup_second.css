@@ -94,6 +94,7 @@
 #button1{
     width: 40%; 
     height: 60%; 
+    
     font-size: 45px;
     cursor: pointer;
     border-width: thick;

@@ -78,8 +78,27 @@
     display: flex;
     flex-direction: column;
     margin-top: 60px;
-    padding: 172px 0 0 647px;
-    align-items: center;
     width: 500px;
     border: solid 2px black;
+}
+
+
+.info_text{
+    text-align: right;
+    font-size: 20px;
+    width: 150px;
+    margin-top: 20px;
+
+}
+
+.info_row{
+    display: flex;
+    flex-direction: row;
+}
+
+input{
+    width: 300px;
+}
+input[type="password"]{
+    width: 200px;
 }
