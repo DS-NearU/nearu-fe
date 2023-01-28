@@ -1,0 +1,26 @@
+.select {
+    padding: 15px 10px;
+    border: 1px solid red;
+}
+.select input[type=radio]{
+    display: none;
+}
+.select input[type=radio]+label{
+    margin-left: -4px;
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 100px;
+    line-height: 24px;
+    text-align: center;
+    font-weight:bold;
+    font-size:13px;
+}
+.select input[type=radio]+label{
+    background-color: #fff;
+    color: skyblue;
+}
+.select input[type=radio]:checked+label{
+    background-color: skyblue;
+    color: #fff;
+}
