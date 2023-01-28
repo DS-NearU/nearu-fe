@@ -51,16 +51,19 @@ input[type="checkbox"]{
 }
 
 .outer_intro{
-    width: 100%;
-    height: 200px;
+    width: 70%;
+    height: 180px;
     font-size: 40px;
     text-align: center;
     padding-top: 70px;
+    border: solid 2px black;
+    background-color: rgb(245, 215, 110);
 }
 
 .outer_agreement{
     width:50%;
     font-size: 30px;
+    margin-top: 20px;
     text-decoration: underline;
     display: flex;
     flex-direction: column;
@@ -83,7 +86,6 @@ input[type="checkbox"]{
     flex-direction: column;
     align-items: center;
     font-size: 20px;
-
 }
 
 #button1 {
@@ -91,5 +93,6 @@ input[type="checkbox"]{
     height: 40pt; 
     font-size: larger;
     cursor: pointer;
+    background-color: rgb(252, 233, 164);
 }
 
