@@ -70,15 +70,6 @@ input[type="checkbox"]{
     align-items: flex-start;
 }
 
-.checkbox{
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    cursor: pointer;
-    /* margin-left: 300px; */
-}
-
 .submit_button{
     margin-top: 60px;
     width: 50%;
