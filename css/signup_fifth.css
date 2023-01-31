@@ -7,11 +7,6 @@
     align-items: center;
     /* background-color: brown; */
 }
-input[type="checkbox"]{
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-}
 
 .index_row{
     display: flex;
@@ -58,41 +53,5 @@ input[type="checkbox"]{
     padding-top: 70px;
     border: solid 2px black;
     background-color: rgb(245, 215, 110);
-}
-
-.outer_agreement{
-    width:50%;
-    font-size: 30px;
-    margin-top: 20px;
-    text-decoration: underline;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.checkbox{
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    cursor: pointer;
-    /* margin-left: 300px; */
-}
-
-.submit_button{
-    margin-top: 30px;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 20px;
-}
-
-#button1 {
-    width: 60%; 
-    height: 40pt; 
-    font-size: larger;
-    cursor: pointer;
-    background-color: rgb(252, 233, 164);
 }
 
