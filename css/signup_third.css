@@ -49,7 +49,6 @@
 }
 .select {
     padding: 15px 10px;
-    border: 1px solid red;
 }
 .select input[type=radio]{
     display: none;
@@ -58,19 +57,19 @@
     margin-left: -4px;
     display: inline-block;
     cursor: pointer;
-    height: 24px;
+    height: 30px;
     width: 100px;
     line-height: 24px;
     text-align: center;
     font-weight:bold;
-    font-size:13px;
+    font-size:25px;
 }
 .select input[type=radio]+label{
     background-color: #fff;
-    color: skyblue;
+    color: black;
 }
 .select input[type=radio]:checked+label{
-    background-color: skyblue;
+    background-color: black;
     color: #fff;
 }
 
@@ -91,9 +90,11 @@
 
 }
 
+
 .info_row{
     display: flex;
     flex-direction: row;
+    
 }
 
 input{
@@ -113,6 +114,7 @@ input[type="checkbox"]{
     cursor: pointer;
     text-decoration: underline;
 }
+<<<<<<< HEAD
 .submit_button{
     margin-top: 40px;
     width: 100%;
@@ -131,4 +133,17 @@ input[type="checkbox"]{
     border-width: thick;
     background-color: rgb(252,233,164); /* Green */
 
+=======
+
+#button {
+    width: 100%; 
+    height: 40pt; 
+    font-size: larger;
+    cursor: pointer;
+    background-color: rgb(252, 233, 164);
+}
+
+#textcontrol{
+    font-size: 20px;
+>>>>>>> 42dd26e8a97d37ad8da51b22ce1dbf6a6c6adc6f
 }
