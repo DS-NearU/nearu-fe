@@ -13,7 +13,7 @@ function checkPassword()
 {
     let aPassword = document.getElementById("password1").value
     let rPassword = document.getElementById("password2").value
-    let email = document.getElementById().value
+    let email = document.getElementById("email").value
     let address = email.substring(email.indexOf("@") + 1)
     if (aPassword===rPassword && address==="daltonschool.kr") {
         location.href="../html/signup_fifth.html"
