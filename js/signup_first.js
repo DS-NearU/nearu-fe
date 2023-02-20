@@ -13,27 +13,20 @@ function checkPassword()
 {
     let aPassword = document.getElementById("password1").value
     let rPassword = document.getElementById("password2").value
-    if (aPassword===rPassword) {
-        location.href="../html/signup_fifth.html"
-    }
-    else {
-        alert("Password does not match.")
-    }
-}
-
-function checkEmail()
-{
     let email = document.getElementById().value
     let address = email.substring(email.indexOf("@") + 1)
-    if(address==="daltonschool.kr")
-    {
+    if (aPassword===rPassword && address==="daltonschool.kr") {
         location.href="../html/signup_fifth.html"
+    }
+    else if(address==="daltonschool.kr"){
+        alert("Password does not match.")
     }
     else
     {
         alert("Only CDS students can sign up.")
     }
 }
+
 function checkFilled()
 {
     let email = document.getElementById("email").value
