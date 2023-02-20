@@ -20,17 +20,7 @@ function checkPassword()
         alert("Password does not match.")
     }
 }
-<<<<<<< HEAD
 
-function checkFilled() {
-    let email = document.getElementById("email").value
-    let name = document.getElementById("name").value
-
-    if (email !== "" && name !== "") {
-        document.getElementById("button1").disabled = false
-    }
-    else {
-=======
 function checkEmail()
 {
     let email = document.getElementById().value
@@ -44,17 +34,20 @@ function checkEmail()
         alert("Only CDS students can sign up.")
     }
 }
-function checkField()
+function checkFilled()
 {
     let email = document.getElementById("email").value
     let name = document.getElementById("name").value
-    if(email&&name)
+    let password1 = document.getElementById("password1").value
+    let phone_number = document.getElementById("phone_num").value
+    let id = document.getElementById("id").value
+
+    if(email&&name&&password1&&phone_number&&id)
     {
         document.getElementById("button1").disabled = false
     }
     else
     {
->>>>>>> b4318d6d732aede592711805a9c81088ecc0dcae
         document.getElementById("button1").disabled = true
     }
 }
