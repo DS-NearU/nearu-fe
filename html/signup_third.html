@@ -24,7 +24,7 @@
         <div class="information">
             <div class="info_row">
                     <div class="info_text">성함:&nbsp</div>
-                    <input type="text" class="textcontrol">
+                    <input type="text" class="textcontrol" id="name">
                     <div class="select">
                         <input type="radio" id="select" name="shop" checked><label for="select">남성</label>
                         <input type="radio" id="select2" name="shop"><label for="select2">여성</label>
@@ -32,7 +32,7 @@
             </div>
             <div class="info_row">
                     <div class="info_text">이메일 주소:&nbsp</div>
-                    <input type="text" class="textcontrol">
+                    <input type="text" class="textcontrol" id = "email" oninput="checkFilled()">
 
             </div>
             <div class="info_row">
@@ -71,7 +71,7 @@
             </div>
             </div>
             <div class="submit_button">
-                <input id="button1" type="submit" value="Next --->" onclick = "checkPassword()">
+                <input id="button1" type="submit" value="Next --->" onclick = "checkPassword()" disabled = true>
             </div>
         </div>
     </div>

@@ -20,3 +20,15 @@ function checkPassword()
         alert("Password does not match.")
     }
 }
+
+function checkFilled() {
+    let email = document.getElementById("email").value
+    let name = document.getElementById("name").value
+
+    if (email !== "" && name !== "") {
+        document.getElementById("button1").disabled = false
+    }
+    else {
+        document.getElementById("button1").disabled = true
+    }
+}
