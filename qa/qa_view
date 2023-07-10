@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Q&A 작성</title>
+    <title>Q&A 게시판</title>
     
     <script src = "../../js/signin_first.js"></script>
 
@@ -10,14 +10,11 @@
 <body>
     <div class = "outerbox">
         <div class = "outerbox_leftBox">
-            <h1>Q&A 작성</h1>
+            <h1>Q&A 게시판</h1>
             <div>빠른 시일 내 답장해드리겠습니다.</div>
         </div>
         <div class = "outerbox_rightBox">
-            <div class="remember">
-                <input type="checkbox" id="public">
-                <span>공개</span>
-            </div>
+            
             <div class = "loginInput">
                 <span>제목 </span>
                 <input type="text" placeholder="질문의 제목을 작성해주세요." id="title"><br>
