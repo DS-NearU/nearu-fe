@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>NearU 가족의 손길</title>
     <link href="../css/signIn.css" rel="stylesheet">
+    <script src = "../../js/signin_first.js"></script>
+
 </head>
 <body>
     <div class = "outerbox">
@@ -21,16 +23,19 @@
                 </div>
             </div>
             <div class = "loginInput">
-                <span>Email/ID: </span>
-                <input type="text" placeholder="input your email/id: "><br>
+                <span>ID: </span>
+                <input type="text" placeholder="input your id: " id="id"><br>
                 <span>Password: </span>
-                <input type="password" placeholder="input your password:"><br>
+                <input type="password" placeholder="input your password:" id="password"><br>
             </div>
             <div class="remember">
                 <input type="checkbox" id="remember">
                 <span>다음에도 기억하기</span>
             </div>
-            <input type="button" value="로그인">
+
+            <div class="submit_button">
+                <input id="button" type="submit" value="로그인" onclick = "signin()">
+            </div>
            
         </div>
     </div>
