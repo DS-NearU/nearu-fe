@@ -44,3 +44,17 @@ function checkFilled()
         document.getElementById("button1").disabled = true
     }
 }
+
+async function signup() {
+    let name = document.getElementById("name");
+    let email = document.getElementById("email");
+    let id = document.getElementById("id");
+    let password1 = document.getElementById("password1");
+    let password2 = document.getElementById("password2");
+    let phone_num = document.getElementById("phone_num");
+    let address = document.getElementById("address");
+    let self_intro = document.getElementById("self_intro");
+    let conditions = document.getElementById("conditions");
+
+    await fetch();
+}
