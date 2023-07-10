@@ -16,7 +16,8 @@ function checkPassword()
     let email = document.getElementById("email").value
     let address = email.substring(email.indexOf("@") + 1)
     if (aPassword===rPassword && address==="daltonschool.kr") {
-        location.href="../html/signup_fifth.html"
+        signup()
+        location.href="./signup_fifth.html"
     }
     else if(address==="daltonschool.kr"){
         alert("Password does not match.")
@@ -56,5 +57,25 @@ async function signup() {
     let self_intro = document.getElementById("self_intro");
     let conditions = document.getElementById("conditions");
 
-    await fetch();
+    let url = "210.109.62.129:8080/sign-up"
+    console.log(url)
+    
+    const result = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: {
+            "name" : name,
+            "email" : email,
+            "id": id,
+            "password1" : password1,
+            "password2" : password2,
+            "phone_num" : phone_num,
+            "address" : address,
+            "self_intro" : self_intro,
+            "conditions" : conditions
+        }
+    }).then(response => response.json())
+    console.log(result)
 }
