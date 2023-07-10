@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .top {
+    flex: 1;
+    background-color: #f2f2f2;
+  }
+  
+  .bottom {
+    flex: 1;
+    background-color: #ddd;
+  }
+  
+  /* Additional styles for content within the sections */
+  
+  .top-content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .bottom-content {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .container{
+    width: 30%;
+    height: 50%;
+    position: absolute;
+    transform: translate(40%,-90%);
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    border: 10px solid #ffffff;
+    border-radius: 8px;
+    box-shadow: 10px 25px 30px rgba(0,0,0,0.3);
+  }
+
+  .wrapper{
+    width: 100%;
+    display: flex;
+    animation: slide 16s infinite;
+}
+img{
+    width: 100%;
+}
+
+@keyframes slide{
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(0);
+    }
+    30%{
+        transform: translateX(-100%);
+    }
+    50%{
+        transform: translateX(-100%);
+    }
+    55%{
+        transform: translateX(-200%);
+    }
+    75%{
+        transform: translateX(-200%);
+    }
+    80%{
+        transform: translateX(-300%);
+    }
+    100%{
+        transform: translateX(-300%);
+    }
+}
+
+h2 {
+    text-align: left;
+  }
