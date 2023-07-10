@@ -47,35 +47,44 @@ function checkFilled()
 }
 
 async function signup() {
-    let name = document.getElementById("name");
-    let email = document.getElementById("email");
-    let id = document.getElementById("id");
-    let password1 = document.getElementById("password1");
-    let password2 = document.getElementById("password2");
-    let phone_num = document.getElementById("phone_num");
-    let address = document.getElementById("address");
-    let self_intro = document.getElementById("self_intro");
-    let conditions = document.getElementById("conditions");
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let id = document.getElementById("id").value;
+    let password1 = document.getElementById("password1").value;
+    let phone_num = document.getElementById("phone_num").value;
+    let address = document.getElementById("address").value;
+    let self_intro = document.getElementById("self_intro").value;
+    let conditions = document.getElementById("conditions").value;
 
-    let url = "210.109.62.129:8080/sign-up"
-    console.log(url)
+
+    let body = {
+            "name" : name,
+            "email" : email,
+            "user_id": id,
+            "password" : password1,
+            "phone_num" : phone_num,
+            "address" : address,
+            "presentation" : self_intro,
+            "conditions" : conditions
+        }
+
+    let url = "http://210.109.62.129:8080/sign-up"
+    console.log(body)
     
-    const result = await fetch(url, {
+    await fetch(url, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: {
+        body: JSON.stringify({
             "name" : name,
             "email" : email,
-            "id": id,
-            "password1" : password1,
-            "password2" : password2,
+            "user_id": id,
+            "password" : password1,
             "phone_num" : phone_num,
             "address" : address,
-            "self_intro" : self_intro,
+            "presentation" : self_intro,
             "conditions" : conditions
-        }
-    }).then(response => response.json())
-    console.log(result)
+        })
+    })
 }
