@@ -3,7 +3,7 @@ function checkValidation() {
     let isChecked2 = document.getElementById("check2").checked
 
     if (isChecked1 && isChecked2) {
-        location.href="../html/signup_second.html"
+        location.href="./signup_second.html"
     }
     else {
         alert("check again")
