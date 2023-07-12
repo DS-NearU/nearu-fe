@@ -22,10 +22,35 @@ async function postQ(){
 
 async function getQ() {
     let url = "http://210.109.62.129:8080/qa-all"
-
+    let cnt = 1
     await fetch (url)
     .then((response) => response.json())
     .then((data) => {
-        console.log(data)
+        data.map((e) => {
+            document.write(`<div>`)
+            document.write(`<div>${cnt}</div>`)
+            // document.write(`<td>${e.question.title}</td>`)
+            // document.write(`<td>${e.name}</td>`)
+            // document.write(`<td>${e.question.created_dt}</td>`)
+            document.write(`<div/>`)
+            cnt++
+        })
     })
+
+    function listToComponent(data) {
+            let cnt = 1;
+
+        // data.map((e) => {
+        //     document.write(`<tr>`)
+        //     document.write(`<td>${cnt}</td>`)
+        //     cnt++;
+        //     document.write(`<td>${e.question.title}</td>`)
+        //     document.write(`<td>${e.name}</td>`)
+        //     document.write(`<td>${e.question.created_dt}</td>`)
+        //     document.write(`<tr/>`)
+
+        // })
+    }
+
 }
+
