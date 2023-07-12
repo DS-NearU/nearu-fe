@@ -23,17 +23,29 @@ async function postQ(){
 async function getQ() {
     let url = "http://210.109.62.129:8080/qa-all"
     let cnt = 1
+    let table = document.getElementById("table_list")
     await fetch (url)
     .then((response) => response.json())
     .then((data) => {
         data.map((e) => {
-            document.write(`<div>`)
-            document.write(`<div>${cnt}</div>`)
-            // document.write(`<td>${e.question.title}</td>`)
-            // document.write(`<td>${e.name}</td>`)
-            // document.write(`<td>${e.question.created_dt}</td>`)
-            document.write(`<div/>`)
+
+            let tr = document.createElement("TR");
+            var num = document.createElement( "TD" ); 
+            var title = document.createElement( "TD" ); 
+            var author = document.createElement( "TD" ); 
+            var created_at = document.createElement( "TD" ); 
+
+            num.innerHTML = `${cnt}`
+            title.innerHTML = `${e.question.title}`
+            author.innerHTML = `${e.name}`
+            created_at.innerHTML = `${e.question.created_dt}`
             cnt++
+
+            tr.appendChild(num)
+            tr.appendChild(title)
+            tr.appendChild(author)
+            tr.appendChild(created_at)
+            table.appendChild(tr)
         })
     })
 
