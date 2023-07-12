@@ -80,3 +80,23 @@ img{
 h2 {
     text-align: left;
   }
+
+
+
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 20px;
+
+}
+
+  th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 20px;
+  }
+
+  table{
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
