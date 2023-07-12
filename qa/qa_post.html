@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Q&A 작성</title>
     
-    <script src = "../../js/signin_first.js"></script>
+    <script src = "./qa_home.js"></script>
 
 </head>
 <body>
@@ -15,18 +15,18 @@
         </div>
         <div class = "outerbox_rightBox">
             <div class="remember">
-                <input type="checkbox" id="public">
-                <span>공개</span>
+                <input type="checkbox" id="anonymous">
+                <span>비공개</span>
             </div>
             <div class = "loginInput">
                 <span>제목 </span>
                 <input type="text" placeholder="질문의 제목을 작성해주세요." id="title"><br>
                 <span> </span>
-                <input type="password" placeholder="질문을 작성해주세요." id="content"><br>
+                <input type="text" placeholder="질문을 작성해주세요." id="content"><br>
             </div>
 
             <div class="submit_button">
-                <input id="button" type="submit" value="질문 제출" onclick = "">
+                <input id="button" type="submit" value="질문 제출" onclick = "postQ()">
             </div>
            
         </div>
