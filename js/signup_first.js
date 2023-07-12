@@ -16,7 +16,8 @@ function checkPassword()
     let email = document.getElementById("email").value
     let address = email.substring(email.indexOf("@") + 1)
     if (aPassword===rPassword && address==="daltonschool.kr") {
-        signup()
+        console.log('match!')
+        signUp()
         location.href="./signup_fifth.html"
     }
     else if(address==="daltonschool.kr"){

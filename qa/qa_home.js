@@ -1,5 +1,31 @@
-function listToComponent () {
-    const list = ["question1", "question2", "question3"]
+async function postQ(){
+    let anonymous = document.getElementById("anonymous").checked
+    let title = document.getElementById("title").value;
+    let content = document.getElementById("content").value;
+    
+    // let url = "http://210.109.62.129:8080/qa"
+    let url = "http://127.0.0.1:8080/qa"
 
-    document.write()
+    await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "anonymous" : anonymous,
+            "title" : title,
+            "question" : content,
+            "user_no" : 15
+        })
+    })
+}
+
+async function getQ() {
+    let url = "http://210.109.62.129:8080/qa-all"
+
+    await fetch (url)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+    })
 }
