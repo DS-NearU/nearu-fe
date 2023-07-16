@@ -1,0 +1,99 @@
+.outerbox {
+    display: flex;
+    flex-direction: row;
+    width:85%;
+    background-color: blue;
+}
+.top_left{
+    display: inline-block;
+    overflow: hidden;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+.top_box{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 30px;
+}
+.bottom_box{
+    display: flex;
+    justify-content:end;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.menus{
+    background-color: black;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 150px;
+}
+
+.menus li{
+    display: block;
+    color:red;
+    padding:8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+}
+.left{
+    width: 25%;
+}
+.contents{
+    margin-left:4px;
+    width: 75%;
+}
+.profile_image{
+    width:90px;
+    height:90px;
+}
+.middle_box div{
+    padding: 10px 10px 10px 10px
+}
+
+.select input[type=radio]{
+    display: none;
+}
+.select input[type=radio]+label{
+    margin-left: -4px;
+    display: inline-block;
+    cursor: pointer;
+    height: 22px;
+    width: 50px;
+    line-height: 24px;
+    text-align: center;
+    font-weight:bold;
+    font-size:10px;
+}
+.select input[type=radio]+label{
+    background-color: yellow;
+    color: black;
+}
+.select input[type=radio]:checked+label{
+    background-color: black;
+    color: #fff;
+}
+
+.header{
+    margin-top: 20px;
+}
+.notification{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 400px;
+}
+
+.notif_type{
+    display: inline-block;
+    justify-content: left;
+    font-size:15px;
+
+}
+
+.sub_header{
+     margin-bottom: 25px;
+}
