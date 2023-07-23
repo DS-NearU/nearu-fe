@@ -47,7 +47,7 @@ async function getQ() {
             tr.appendChild(created_at)
             table.appendChild(tr)
             tr.addEventListener("click", function(){
-                location.href = "./qa_view.html"
+                location.href = `./qa_view.html?${e.question.qa_no}`
             })
         })
     })
