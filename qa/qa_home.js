@@ -46,6 +46,9 @@ async function getQ() {
             tr.appendChild(author)
             tr.appendChild(created_at)
             table.appendChild(tr)
+            tr.addEventListener("click", function(){
+                location.href = "./qa_view.html"
+            })
         })
     })
 
@@ -64,5 +67,10 @@ async function getQ() {
 //             })
 //         }
 
+
+
+    function pageToDetail(){
+        location.href='./qa_view.html';
+    }
 }
 

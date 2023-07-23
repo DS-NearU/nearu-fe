@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Q&A 작성</title>
-    
+    <link rel="stylesheet" href="../../css/qa_post.css">
     <script src = "./qa_home.js"></script>
 
 </head>
 <body>
     <div class = "outerbox">
         <div class = "outerbox_leftBox">
-            <h1>Q&A 작성</h1>
-            <div>빠른 시일 내 답장해드리겠습니다.</div>
+            <div>Q&A 작성</div>
+            <div class = "outer_innerBox">
+                <div>빠른 시일 내 답장해드리겠습니다.</div>
+            </div>
+        </div>
+        <div class = "innerbox">   
+            <div class = "title">
+                <span>제목 </span>
+                <input type="text" placeholder="질문의 제목을 작성해주세요." id="title" width="400px">
+            </div>
+            <label><input type="checkbox" id="anonymous">비공개</label>
+
+
         </div>
         <div class = "outerbox_rightBox">
-            <div class="remember">
-                <input type="checkbox" id="anonymous">
-                <span>비공개</span>
-            </div>
+            
             <div class = "loginInput">
-                <span>제목 </span>
-                <input type="text" placeholder="질문의 제목을 작성해주세요." id="title"><br>
                 <span> </span>
                 <input type="text" placeholder="질문을 작성해주세요." id="content"><br>
             </div>
