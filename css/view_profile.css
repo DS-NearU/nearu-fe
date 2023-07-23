@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     width:85%;
-    background-color: blue;
+    background-color: paleturquoise;
 }
 .top_left{
     display: inline-block;
@@ -94,6 +94,48 @@
 
 }
 
+.emercall{
+    display: flex;
+    flex-direction: row;
+}
+
+.ask_type{
+    display: inline-block;
+    justify-content: left;
+    font-size:15px;
+}
+
+.favorites{
+    display: flex;
+    flex-direction: row;
+}
+
+
 .sub_header{
      margin-bottom: 25px;
+}
+.box {
+    width: 200px;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 5px;
+    border: 2px solid blue;
+}
+
+.infobox{
+    width: 200px;
+    height: 100px;
+    background: yellow;
+    float: top;
+    margin-bottom: 2px;
+    margin-left:20px;
+    transition: 1s;
+    border-radius: 5%;
+    flex-direction: column;}
+
+.infobox:hover{
+    transform:scale(1.2);
+    background: lightgoldenrodyellow;
+    box-shadow: 1.5px 1.5px 1.5px #000;
+    z-index: 1;
 }

@@ -49,20 +49,20 @@ async function getQ() {
         })
     })
 
-    function listToComponent(data) {
-            let cnt = 1;
+//     function listToComponent(data) {
+//             let cnt = 1;
 
-        // data.map((e) => {
-        //     document.write(`<tr>`)
-        //     document.write(`<td>${cnt}</td>`)
-        //     cnt++;
-        //     document.write(`<td>${e.question.title}</td>`)
-        //     document.write(`<td>${e.name}</td>`)
-        //     document.write(`<td>${e.question.created_dt}</td>`)
-        //     document.write(`<tr/>`)
+//             data.map((e) => {
+//                 document.write(`<tr>`)
+//                 document.write(`<td>${cnt}</td>`)
+//                 cnt++;
+//                 document.write(`<td>${e.question.title}</td>`)
+//                 document.write(`<td>${e.name}</td>`)
+//                 document.write(`<td>${e.question.created_dt}</td>`)
+//                 document.write(`<tr/>`)
 
-        // })
-    }
+//             })
+//         }
 
 }
 
