@@ -4,40 +4,41 @@
     <meta charset="UTF-8">
     <title>Q&A 게시판</title>
     <link rel="stylesheet" href="../../css/qa_view.css">
-    <script src = "../../js/signin_first.js"></script>
+    <script src = "./qa_home.js"></script>
 
 </head>
 <body>
+    <button onclick="getQDetail()">테스트</button>
     <div class = "outerbox">
         <div class = "outerbox_leftBox">
             <div>Q&A 게시판</div>
         </div>
         <div class = "question">
             <div class = "outerbox_rightBox">
-                <div class = "title">
+                <div class = "title" id = "title">
                     <div>제목</div>
                 </div>
-                <div class = "user">
+                <div class = "user" id = "user_id">
                     <div>@</div>
                 </div>
-                <div class = "date">
+                <div class = "date" id = "date">
                     <div>2023.07.23</div>
                 </div>
             </div>
-            <div class = "content">
+            <div class = "content" id = "content">
                 <div>question</div>
             </div>
         </div>
         <div class = "comment">
             <div class = "outerbox_rightBox">
-                <div class = "user">
+                <div class = "user" id = "comment_user">
                     <div>@</div>
                 </div>
-                <div class = "date">
+                <div class = "date" id = "comment_date">
                     <div>2023.07.23</div>
                 </div>
             </div>
-            <div class = "content">
+            <div class = "content" id = "comment_content">
                 <div>comment</div>
             </div>
         </div>

@@ -74,3 +74,34 @@ async function getQ() {
     }
 }
 
+async function getQDetail() {
+    const qa_no = location.href.split('?')[1];
+    let url = `http://127.0.0.1:8080/qa?qa_no=${qa_no}`
+    let response;
+    await fetch(url).then((response) => response.json()).then((data) => {
+        response = data; 
+    })
+    const name = response.name
+    const comments = response.comments
+    const qa = response.question
+    console.log(comments)
+    console.log(response)
+    const q_title = document.getElementById('title')
+    q_title.innerText = `${response.question.title}`
+    const q_id = document.getElementById('user_id')
+    q_title.innerText = `${response.question.user.user_id}`
+    const q_date = document.getElementById('date')
+    q_title.innerText = `${response.question.created_at}`
+    const q_content = document.getElementById('content')
+    q_title.innerText = `${response.question.question}`
+    comments.map((com) => {
+        const com_user = document.getElementById('comment_user')
+        com_user.innerText = `${com.user.user_id}`
+        const com_date = document.getElementById('comment_user')
+        com_date.innerText = `${com.created_at}`
+        const com_content = document.getElementById('comment_user')
+        com_content.innerText = `${com.content}`
+    })
+}
+
+
