@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="../../css/view_profile.css">
         <title>View Profile</title>
+        <script src = "../../js/view_profile.js"></script>
     </head>
 <body>
     <div class="container">
@@ -21,15 +22,28 @@
                         <div class="profile_image">
                             <img src="../../image/nearUlogo.jpg">
                         </div>
-                        <div class="name">name</div>
+                        <div class="title">name</div>
+                        <div class="name" id ="name"></div>
                     </div>
+
                     <div class="personal_info">info (봉사자/이용객)</div>
                 </div>
                 <div class="middle_box">
-                    <div class="rating">rating</div>
-                    <div class="email">email</div>
-                    <div class="phonenum">num</div>
-                    <div class="reasons">봉사다짐</div>
+                    <div class="title">rating</div>
+                    <div class ="rating" id="rating"></div>
+
+                    <div class="title">email</div>
+                    <div class ="email" id="email"></div>
+
+                    <div class="title">num</div>
+                    <div class ="phonenum" id="phonenum"></div>
+
+                    <div class="title">봉사 다짐</div>
+                    <div class ="presentation" id="presentation"></div>
+
+                    <script>
+                        getProfile()
+                    </script>
                 </div>
                 <div class="submit_button">
                     <input id="button1" type="submit" value="프로필 수정" onclick="window.location.href='./edit_profile.html'">

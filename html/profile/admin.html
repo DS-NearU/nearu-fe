@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="../../css/view_profile.css">
         <title>View Profile</title>
+        <script src = "../../admin.js"></script>
     </head>
 <body>
     <div class="container">
@@ -62,28 +63,16 @@
                     <div class="favorites">
                         <div class="ask_type">
                             즐겨찾기 장소를 설정해주세요.
-                            <div class="favorite1">
-                                <div class="box">House</div>
+                            <div class="add_locations">
                                 <div class="box">
-                                    <input type="text" placeholder="입력해주세요" id="fav1">
+                                    <select name="location_type" id="loc">
+                                        <option value="house">House</option>
+                                        <option value="hospital">Hospital</option>
+                                    </select>
+                                    <input type="text" placeholder="주소를 입력해주세요" id="fav">
                                 </div>
-                            </div>
-                            <div class="favorite2">
-                                <div class="box">Hospital 1</div>
-                                <div class="box">
-                                    <input type="text" placeholder="입력해주세요" id="fav2">
-                                </div>
-                            </div>
-                            <div class="favorite3">
-                                <div class="box">Hospital 2</div>
-                                <div class="box">
-                                    <input type="text" placeholder="입력해주세요" id="fav3">
-                                </div>
-                            </div>
-                            <div class="favorite4">
-                                <div class="box">Hospital 3</div>
-                                <div class="box">
-                                    <input type="text" placeholder="입력해주세요" id="fav4">
+                                <div class="add_button">
+                                    <input id = "button2" type="submit" value="주소 추가" onclick=addLocation()>
                                 </div>
                             </div>
                         </div>
