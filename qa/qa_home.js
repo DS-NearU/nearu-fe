@@ -40,7 +40,8 @@ async function getQ() {
             author.innerHTML = `${e.name}`
             created_at.innerHTML = `${e.question.created_dt}`
             cnt++
-
+            
+            tr.style.cursor = 'pointer'
             tr.appendChild(num)
             tr.appendChild(title)
             tr.appendChild(author)
@@ -76,7 +77,7 @@ async function getQ() {
 
 async function getQDetail() {
     const qa_no = location.href.split('?')[1];
-    let url = `http://127.0.0.1:8080/qa?qa_no=${qa_no}`
+    let url = `http://210.109.62.129:8080/qa?qa_no=${qa_no}`
     let response;
     await fetch(url).then((response) => response.json()).then((data) => {
         response = data; 
