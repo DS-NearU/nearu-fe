@@ -104,7 +104,7 @@ async function getNotification() {
 
     favorite.map((fav) => {
 
-        const form = document.getElementById('form')
+        const form = document.getElementById('formtest')
         const field = document.createElement('div')
         field.class = "field"
         
