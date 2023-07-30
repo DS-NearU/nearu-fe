@@ -169,7 +169,7 @@ async function getNotification() {
 
 function addField() {
 
-    const form = document.getElementById('form')
+    const form = document.getElementById('formtest')
     
     const field = document.createElement('div')
     field.class = "field"
@@ -178,7 +178,9 @@ function addField() {
     const fav_option_house = document.createElement('option')
     const fav_option_hospital = document.createElement('option')
     fav_option_house.value = "house"
+    fav_option_house.innerText = "house"
     fav_option_hospital.value = "hospital"
+    fav_option_hospital.innerText = "hospital"
     fav_type.appendChild(fav_option_house)
     fav_type.appendChild(fav_option_hospital)
 
@@ -186,6 +188,8 @@ function addField() {
     fav_address.type = "text"
 
     const fav_minus = document.createElement('span')   
+    fav_minus.innerText = "-"
+
     fav_minus.addEventListener("click", (e) => {
         form.removeChild(field)
     })   
@@ -197,11 +201,37 @@ function addField() {
 
 }
 
+async function postFavorites() {
+    let url = "http://127.0.0.1:8080/notifications?user_id=nearu"
 
 
-// DELETE
-function removeField(minusElement){
-    minusElement.parentElement.remove();
- }
+    let email = document.getElementById('setting_email').value
+    let phone = document.getElementById('setting_phone').value
+    let text = document.getElementById('setting_msg').value
+    let favorites = [];
+    
+    
+    const form = document.getElementById('formtest')
 
+    form.children.map((item) => {
+        let fav = map()
+        fav.add('fav_type', )
+        fav.add('address', item.children)
+    })
+ 
+
+    await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "email" : email,
+            "phone" : phone,
+            "text" : text,
+            "favorites" : 
+        })
+    })
+
+}
  // POST (는 버튼 하나가 해주는 것)

@@ -68,21 +68,14 @@ async function getQDetail() {
 
     console.log(response)
     
+    const name = response.name
     const comments = response.comments
+    const qa = response.question
 
     const q_title = document.getElementById('title')
     q_title.innerText = `${response.question.title}`
-
-    if (response.question.anonymous) {
-        const q_id = document.getElementById('user_id')
-        //q_title.innerText =
-
-    }
-    else {
-        const q_id = document.getElementById('user_id')
-        q_title.innerText = `${response.question.user.user_id}`
-    }
-
+    const q_id = document.getElementById('user_id')
+    q_title.innerText = `${response.question.user.user_id}`
     const q_date = document.getElementById('date')
     q_title.innerText = `${response.question.created_at}`
     const q_content = document.getElementById('content')
