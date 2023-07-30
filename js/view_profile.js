@@ -229,7 +229,7 @@ async function postFavorites() {
             "email" : email,
             "phone" : phone,
             "text" : text,
-            "favorites" : 
+            "favorites" : favorites
         })
     })
 
