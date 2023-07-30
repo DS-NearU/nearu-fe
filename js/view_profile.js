@@ -199,7 +199,6 @@ function addField() {
 
 
 
-
 // DELETE
 function removeField(minusElement){
     minusElement.parentElement.remove();
