@@ -89,3 +89,8 @@ async function signup() {
         })
     })
 }
+
+function test() {
+    const parent = document.getElementById("button1").parentElement
+    console.log(parent)
+}

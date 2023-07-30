@@ -3,7 +3,40 @@
     <head>
         <link rel="stylesheet" href="../../css/view_profile.css">
         <title>View Profile</title>
-        <script src = "../../view_profile.js"></script>
+        <!-- <script>
+            function addField() {
+
+                const form = document.getElementById('form_test')
+
+                const field = document.createElement('div')
+                field.class = "field"
+
+                const fav_type = document.createElement('select')
+                const fav_option_house = document.createElement('option')
+                const fav_option_hospital = document.createElement('option')
+                fav_option_house.value = "house"
+                fav_option_house.innerText = "house"
+                fav_option_hospital.value = "hospital"
+                fav_option_hospital.innerText = "hospital"
+                fav_type.appendChild(fav_option_house)
+                fav_type.appendChild(fav_option_hospital)
+
+                const fav_address = document.createElement('input')
+                fav_address.type = "text"
+
+                const fav_minus = document.createElement('span')   
+                fav_minus.innerText = "-"
+                fav_minus.addEventListener("click", (e) => {
+                    form.removeChild(field)
+                })   
+
+                field.appendChild(fav_type)
+                field.appendChild(fav_address)
+                field.appendChild(fav_minus)
+                form.appendChild(field)
+            }
+        </script> -->
+        <script src="../../js/view_profile.js"></script>
     </head>
 <body>
     <div class="container">
@@ -64,10 +97,10 @@
                         <div class="ask_type">
                             <h3>즐겨찾기 장소를 설정해주세요</h3>
                             
-                            <div id="form" autocomplete="off"></div>
+                            <div id="form_test" autocomplete="off"></div>
                         </div>
                         <div class="submit_button">
-                            <input id="submit" type="button" value="주소 추가" onclick=addField()>
+                            <input id="submit" type="button" value="주소 추가" onclick="addField()">
                         </div>
                     </div>
                     <div class="confirm_button">

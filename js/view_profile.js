@@ -169,7 +169,7 @@ async function getNotification() {
 
 function addField() {
 
-    const form = document.getElementById('form')
+    const form = document.getElementById('form_test')
     
     const field = document.createElement('div')
     field.class = "field"
