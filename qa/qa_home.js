@@ -53,23 +53,6 @@ async function getQ() {
         })
     })
 
-//     function listToComponent(data) {
-//             let cnt = 1;
-
-//             data.map((e) => {
-//                 document.write(`<tr>`)
-//                 document.write(`<td>${cnt}</td>`)
-//                 cnt++;
-//                 document.write(`<td>${e.question.title}</td>`)
-//                 document.write(`<td>${e.name}</td>`)
-//                 document.write(`<td>${e.question.created_dt}</td>`)
-//                 document.write(`<tr/>`)
-
-//             })
-//         }
-
-
-
     function pageToDetail(){
         location.href='./qa_view.html';
     }
@@ -81,7 +64,7 @@ async function getQDetail() {
     let response;
     await fetch(url).then((response) => response.json()).then((data) => {
         response = data; 
-    })
+    })    
     const name = response.name
     const comments = response.comments
     const qa = response.question

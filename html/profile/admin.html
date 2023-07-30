@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" href="../../css/view_profile.css">
         <title>View Profile</title>
-        <script src = "../../admin.js"></script>
+        <script src = "../../view_profile.js"></script>
     </head>
 <body>
     <div class="container">
@@ -27,30 +27,30 @@
                     <div class="notification">
                         <div class="notif_type">
                             이메일 수신
-                            <div class="select">
+                            <div class="select" id="setting_email" data-value="email">
                                 <input type="radio" id="email" name="email" checked>
                                 <label for="email">동의</label>
-                                <input type="radio" id="noemail" name="email">
+                                <input type="radio" id="no_email" name="email">
                                 <label for="noemail">비동의</label>
                             </div>
                         </div>
                        
                         <div class="notif_type">
                             전화 수신
-                            <div class="select">
+                            <div class="select" id="setting_phone" data-value="phone">
                                 <input type="radio" id="phone" name="phone" checked>
                                 <label for="phone">동의</label>
-                                <input type="radio" id="nophone" name="phone">
+                                <input type="radio" id="no_phone" name="phone">
                                 <label for="nophone">비동의</label>
                             </div>
                         </div>
                        
                         <div class="notif_type">
                             문자 수신
-                            <div class="select">
+                            <div class="select" id="setting_msg" data-value="text">
                                 <input type="radio" id="text" name="text" checked>
                                 <label for="text">동의</label>
-                                <input type="radio" id="notext" name="text">
+                                <input type="radio" id="no_text" name="text">
                                 <label for="notext">비동의</label>
                             </div>
                         </div>
@@ -62,22 +62,15 @@
                 <div class="adminbottom_box">
                     <div class="favorites">
                         <div class="ask_type">
-                            즐겨찾기 장소를 설정해주세요.
-                            <div class="add_locations">
-                                <div class="box">
-                                    <select name="location_type" id="loc">
-                                        <option value="house">House</option>
-                                        <option value="hospital">Hospital</option>
-                                    </select>
-                                    <input type="text" placeholder="주소를 입력해주세요" id="fav">
-                                </div>
-                                <div class="add_button">
-                                    <input id = "button2" type="submit" value="주소 추가" onclick=addLocation()>
-                                </div>
-                            </div>
+                            <h3>즐겨찾기 장소를 설정해주세요</h3>
+                            
+                            <div id="form" autocomplete="off"></div>
+                        </div>
+                        <div class="submit_button">
+                            <input id="submit" type="button" value="주소 추가" onclick=addField()>
                         </div>
                     </div>
-                    <div class="submit_button">
+                    <div class="confirm_button">
                         <input id="button1" type="submit" value="관리 설정" onclick="window.location.href='./admin.html'">
                     </div>
 
