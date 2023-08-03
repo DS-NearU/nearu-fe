@@ -28,22 +28,31 @@
                 <div>question</div>
             </div>
         </div>
+
         <div class = "comment">
-            <div class = "outerbox_rightBox">
-                <div class = "user" id = "comment_user">
-                    <div>@</div>
-                </div>
-                <div class = "date" id = "comment_date">
-                    <div>2023.07.23</div>
+            <div id = "commentSpace">
+                <div class = "top">
+                    <div class = "info" id="info">
+                        <span id = "comment_id"></span>
+                        <span id = "comment_date"></span>
+                    </div>
+                    <div class = "content" id="content">
+                        <input type = "text" id = "comment_contents">
+                    </div>
                 </div>
             </div>
-            <div class = "content" id = "comment_content">
-                <div>comment</div>
+            <div class="comment_button">
+                <input id="button" type="submit" value="댓글 달기" onclick=addComment()>
+            </div>
+            <div class="comment_button">
+                <input id="button" type="submit" value="댓글 올리기" onclick=postComment()>
             </div>
         </div>
+
         <div class="submit_button">
             <input id="button" type="submit" value="Q&A 게시판" onclick="window.location.href='./qa_home.html'">
         </div>
+
     </div>
     <script>
         getQDetail()

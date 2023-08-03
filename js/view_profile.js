@@ -201,7 +201,7 @@ function addField() {
 
 }
 
-async function postFavorites() {
+async function postFavorites() { // 버튼을 눌렀을때
     let url = "http://127.0.0.1:8080/notifications?user_id=nearu"
 
 
@@ -215,8 +215,10 @@ async function postFavorites() {
 
     form.children.map((item) => {
         let fav = map()
-        fav.add('fav_type', )
-        fav.add('address', item.children)
+        // false - hospital / true - house
+        // 가장 첫번째 children이 한 공간 (including locationType & address)
+        fav.add('fav_type', item.children[0].children[0].children[0].selected)
+        fav.add('address', item.children[0].children[1].value)
     })
  
 

@@ -65,8 +65,6 @@ async function getQDetail() {
     await fetch(url).then((response) => response.json()).then((data) => {
         response = data; 
     })    
-
-    console.log(response)
     
     const name = response.name
     const comments = response.comments
@@ -80,14 +78,80 @@ async function getQDetail() {
     q_title.innerText = `${response.question.created_at}`
     const q_content = document.getElementById('content')
     q_title.innerText = `${response.question.question}`
+
+
     comments.map((com) => {
-        const com_user = document.getElementById('comment_user')
-        com_user.innerText = `${com.user.user_id}`
-        const com_date = document.getElementById('comment_user')
-        com_date.innerText = `${com.created_at}`
-        const com_content = document.getElementById('comment_user')
-        com_content.innerText = `${com.content}`
+
+        const form = document.getElementById('commentSpace')
+        const field = document.createElement('div')
+        field.class = "field"
+
+        const info = document.createElement('div')
+        const info_user_id = document.createElement('span')
+        const info_user_date = document.createElement('span')
+        info_user_id.innerText = com.user.user_id
+        info_user_date.innerText = com.created_at
+        info.appendChild(info_user_id)
+        info.appendChild(info_user_date)
+
+        const contents = document.createElement('div')
+        const contents_specific = document.createElement('input')
+        contents_specific.type = "text"
+        contents_specific.value = com.content
+
+        field.appendChild(info)
+        field.appendChild(contents)
+        form.appendChild(field)
     })
 }
 
+async function addComment() {
+    let url = "http://127.0.0.1:8080/comment?user_id=nearu"
+    let comment_user;
+    await fetch(url).then((response) => response.json()).then((data) => {
+        comment_user = data; 
+    })
 
+    const form = document.getElementById('commentSpace')
+    const field = document.createElement('div')
+    field.class = "field"
+
+    const info = document.createElement('div')
+    const info_user_id = document.createElement('span')
+    const info_user_date = document.createElement('span')
+    info_user_id.innerText = // comment_user에 어떻게 되어 있는지 보고 값 줌
+    info_user_date.innerText = // 위에꺼랑 똑같이
+    info.appendChild(info_user_id)
+    info.appendChild(info_user_date)
+
+    const contents = document.createElement('div')
+    const contents_specific = document.createElement('input')
+    contents_specific.type = "text"
+
+    field.appendChild(info)
+    field.appendChild(contents)
+    form.appendChild(field)
+
+}
+
+async function postComments() {
+    const qa_no = location.href.split('?')[1];
+    let url = `http://127.0.0.1:8080/qa?qa_no=${qa_no}`
+
+    let user = document.getElementById('comment_id')
+    let date = document.getElementById('comment_date')
+    let content = document.getElementById('comment_contents')
+
+    await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "user" : user,
+            "date" : date,
+            "content" : content
+        })
+    })
+
+}
