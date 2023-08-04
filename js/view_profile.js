@@ -129,7 +129,9 @@ async function getNotification() {
         fav_address.type = "text"
         fav_address.value = fav.address
 
-        const fav_minus = document.createElement('span')   
+        const fav_minus = document.createElement('span') 
+        fav_minus.innerText = "-"
+  
         fav_minus.addEventListener("click", (e) => {
             form.removeChild(field)
         })   
@@ -211,6 +213,8 @@ async function postFavorites() { // 버튼을 눌렀을때
     let phone;
     let text;
 
+    // DB에 DTO 값이 어떻게 받는지 확인
+    // Boolean으로 되어 있으니까 이대로 JSON에 넘겨주면 됨
     if (document.getElementById('email').checked) {
         email = true
     }
@@ -232,15 +236,17 @@ async function postFavorites() { // 버튼을 눌렀을때
         text = false
     }
 
-    console.log(email)
-    console.log(phone)
-    console.log(text)
-
+    // console.log(email)
+    // console.log(phone)
+    // console.log(text)
 
     const form = document.getElementById('formtest')
     for (var i=0; i<form.children.length; i++) {
         let fav
 
+        // 나는 console에서 보면 Boolean으로 되어있지만
+        // DB DTO을 확인해보면, Boolean을 받지 않고 String이 되어있음
+        // 변환을 해주고 JSON으로 넘김
         if (form.children[i].children[0].children[0].selected) {
             fav = "home"
         }
@@ -253,7 +259,6 @@ async function postFavorites() { // 버튼을 눌렀을때
         })
     }
  
-    console.log(JSON.stringify.favorites)
     await fetch(url, {
         method: "PUT",
         headers: {
@@ -268,4 +273,3 @@ async function postFavorites() { // 버튼을 눌렀을때
     })
 
 }
- // POST (는 버튼 하나가 해주는 것)
