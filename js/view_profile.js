@@ -236,9 +236,18 @@ async function postFavorites() { // 버튼을 눌렀을때
     }
 
     const form = document.getElementById('formtest')
-    for (var i=0; i<form.children.length; i++) {
-        let fav
+      /*
+        const form = document.getElementById('formtest')
+        console.log(console.log(form.children[1].children[1].value)) --> address
+      */
 
+    for (var i=0; i<form.children.length; i++) {
+        let fav;
+
+        //test할때: (trial & error필요 to find the correct path)
+        console.log(form.children[i].children[0].children[0].selected) // i 다음으로 있는 것들은 0이 아닐수도, 시도 필요.
+        console.log(form.children[i].children[1].value) // 얘도 먼저 i만 해보고, 1은 (option 1,2,3있길래 그 중 고른거임)
+        
         // 나는 console에서 보면 Boolean으로 되어있지만
         // DB DTO을 확인해보면, Boolean을 받지 않고 String이 되어있음
         // 변환을 해주고 JSON으로 넘김
