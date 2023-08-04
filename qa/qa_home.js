@@ -140,18 +140,14 @@ async function postComments() {
     const qa_no = location.href.split('?')[1];
     let url = `http://127.0.0.1:8080/qa?qa_no=${qa_no}`
 
-    let user = document.getElementById('comment_id')
-    let date = document.getElementById('comment_date')
     let content = document.getElementById('comment_contents')
 
     await fetch(url, {
-        method: "POST",
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            "user" : user,
-            "date" : date,
             "content" : content
         })
     })

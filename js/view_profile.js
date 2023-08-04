@@ -146,7 +146,7 @@ async function getNotification() {
     }
     else {
         const email_setting_value = document.getElementById('no_email')
-        email_setting_value.checked = false
+        email_setting_value.checked = true
     }
 
     if (phone) {
@@ -155,7 +155,7 @@ async function getNotification() {
     }
     else {
         const phone_setting_value = document.getElementById('no_phone')
-        phone_setting_value.checked = false
+        phone_setting_value.checked = true
     }
 
     if (text) {
@@ -164,7 +164,7 @@ async function getNotification() {
     }
     else {
         const text_setting_value = document.getElementById('no_text')
-        text_setting_value.checked = false
+        text_setting_value.checked = true
     }
 
 }
@@ -211,25 +211,25 @@ async function postFavorites() { // 버튼을 눌렀을때
     let phone;
     let text;
 
-    if (document.getElementById('email').value) {
+    if (document.getElementById('email').checked) {
         email = true
     }
     else {
-        email=false
+        email = false
     }
 
-    if (document.getElementById('phone').value) {
+    if (document.getElementById('phone').checked) {
         phone = true
     }
     else {
-        phone=false
+        phone = false
     }
 
-    if (document.getElementById('text').value) {
+    if (document.getElementById('text').checked) {
         text = true
     }
     else {
-        text=false
+        text = false
     }
 
     console.log(email)
@@ -252,12 +252,6 @@ async function postFavorites() { // 버튼을 눌렀을때
             "fav_type" : fav
         })
     }
-    console.log(JSON.stringify({
-        "email_notification" : email,
-        "phone_notification" : phone,
-        "msg_notification" : text,
-        "favorites" : favorites
-    }))
  
     console.log(JSON.stringify.favorites)
     await fetch(url, {
@@ -268,7 +262,7 @@ async function postFavorites() { // 버튼을 눌렀을때
         body: JSON.stringify({
             "email_notification" : email,
             "phone_notification" : phone,
-            "text_notification" : text,
+            "msg_notification" : text,
             "favorites" : favorites
         })
     })
