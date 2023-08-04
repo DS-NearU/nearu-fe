@@ -105,6 +105,7 @@ async function getQDetail() {
     })
 }
 
+/*
 async function addComment() {
     let url = "http://127.0.0.1:8080/comment?user_id=nearu"
     let comment_user;
@@ -117,8 +118,8 @@ async function addComment() {
     field.class = "field"
 
     const info = document.createElement('div')
-    const info_user_id = document.createElement('span')
-    const info_user_date = document.createElement('span')
+    const info_user_id = document.createElement('div')
+    const info_user_date = document.createElement('spdan')
     info_user_id.innerText = // comment_user에 어떻게 되어 있는지 보고 값 줌
     info_user_date.innerText = // 위에꺼랑 똑같이
     info.appendChild(info_user_id)
@@ -133,6 +134,7 @@ async function addComment() {
     form.appendChild(field)
 
 }
+*/
 
 async function postComments() {
     const qa_no = location.href.split('?')[1];

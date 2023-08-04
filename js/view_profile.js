@@ -112,16 +112,18 @@ async function getNotification() {
         const fav_option_house = document.createElement('option')
         const fav_option_hospital = document.createElement('option')
         fav_option_house.value = "house"
+        fav_option_house.innerText = "house"
         fav_option_hospital.value = "hospital"
-        fav_type.appendChild(fav_option_house)
-        fav_type.appendChild(fav_option_hospital)
+        fav_option_hospital.innerText = "hospital"
 
         if (fav.favorite_type_code === "0") {
-            fav_option_house.selected = true
+            fav_option_house.setAttribute("selected", "true")
         }
         else {
-            fav_option_hospital.selected = true
+            fav_option_hospital.setAttribute("selected", "true")
         }
+        fav_type.appendChild(fav_option_house)
+        fav_type.appendChild(fav_option_hospital)
 
         const fav_address = document.createElement('input')
         fav_address.type = "text"
@@ -204,33 +206,69 @@ function addField() {
 async function postFavorites() { // 버튼을 눌렀을때
     let url = "http://127.0.0.1:8080/notifications?user_id=nearu"
 
-
-    let email = document.getElementById('setting_email').value
-    let phone = document.getElementById('setting_phone').value
-    let text = document.getElementById('setting_msg').value
     let favorites = [];
-    
-    
+    let email;
+    let phone;
+    let text;
+
+    if (document.getElementById('email').value) {
+        email = true
+    }
+    else {
+        email=false
+    }
+
+    if (document.getElementById('phone').value) {
+        phone = true
+    }
+    else {
+        phone=false
+    }
+
+    if (document.getElementById('text').value) {
+        text = true
+    }
+    else {
+        text=false
+    }
+
+    console.log(email)
+    console.log(phone)
+    console.log(text)
+
+
     const form = document.getElementById('formtest')
+    for (var i=0; i<form.children.length; i++) {
+        let fav
 
-    form.children.map((item) => {
-        let fav = map()
-        // false - hospital / true - house
-        // 가장 첫번째 children이 한 공간 (including locationType & address)
-        fav.add('fav_type', item.children[0].children[0].children[0].selected)
-        fav.add('address', item.children[0].children[1].value)
-    })
+        if (form.children[i].children[0].children[0].selected) {
+            fav = "home"
+        }
+        else {
+            fav = "hospital"
+        }
+        favorites.push({
+            "address": form.children[i].children[1].value,
+            "fav_type" : fav
+        })
+    }
+    console.log(JSON.stringify({
+        "email_notification" : email,
+        "phone_notification" : phone,
+        "msg_notification" : text,
+        "favorites" : favorites
+    }))
  
-
+    console.log(JSON.stringify.favorites)
     await fetch(url, {
-        method: "POST",
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            "email" : email,
-            "phone" : phone,
-            "text" : text,
+            "email_notification" : email,
+            "phone_notification" : phone,
+            "text_notification" : text,
             "favorites" : favorites
         })
     })
