@@ -17,7 +17,7 @@ function checkPassword()
     let address = email.substring(email.indexOf("@") + 1)
     if (aPassword===rPassword && address==="daltonschool.kr") {
         console.log('match!')
-        signUp()
+        signup()
         location.href="./signup_fifth.html"
     }
     else if(address==="daltonschool.kr"){
@@ -88,6 +88,19 @@ async function signup() {
             "conditions" : conditions
         })
     })
+}
+
+function checkBoxFilled() {
+    let checkOne = document.getElementById('check1').checked
+    let checkTwo = document.getElementById('check2').checked
+
+    if (checkOne&&checkTwo) {
+        document.getElementById("button1").disabled = true
+        window.location.href='../signUp/signup_second.html'
+    }
+    else {
+        alert("Read the boxes and check both of them!")
+    }
 }
 
 function test() {

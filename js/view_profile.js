@@ -28,7 +28,6 @@ async function getProfile() {
 }
 
 async function editProfile() {
-   
     
     let url = "http://210.109.62.129:8080/profile?user_id=nearu"
 
@@ -235,10 +234,6 @@ async function postFavorites() { // 버튼을 눌렀을때
     else {
         text = false
     }
-
-    // console.log(email)
-    // console.log(phone)
-    // console.log(text)
 
     const form = document.getElementById('formtest')
     for (var i=0; i<form.children.length; i++) {
