@@ -6,7 +6,6 @@ async function postRequest(){
     let loc = document.getElementById("meet").innerText
      
     let response;
-
     await fetch (url, {
         method: "POST",
         headers: {
@@ -25,6 +24,7 @@ async function postRequest(){
         if (response.status == 500) {
             alert("Your appointment date has to be later than 24 hours from now.")
         }
+
     })    
 
 }
