@@ -1,0 +1,20 @@
+.bottom_box {
+    display: flex;
+}
+
+.bottom_left {
+    flex:1;
+    border: 2px solid yellow;
+    display: flex;
+    align-items: center;
+}  
+
+.bottom_right {
+    margin-right: 50%;
+} 
+
+.textbox{
+    width : 300px;
+    height : 100px;
+    resize: none;
+}
