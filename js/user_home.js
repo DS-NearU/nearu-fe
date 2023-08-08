@@ -15,7 +15,7 @@ async function postRequest(){
         body: JSON.stringify({
             "user_id" : "nearu",
             "conditions" : conditions,
-            "d_day" : d_day,
+            "d_day" : $.datepicker.formatDate("yy-mm-dd",$(".datepicker").datepicker("getDate")) + " " + $(".timepicker").timepicker("getTime") + ":00",
             "duration_hours" : duration_hours,
             "location" : loc,
         })
@@ -28,3 +28,27 @@ async function postRequest(){
     })    
 
 }
+
+
+function popOpen() {
+
+    var modalPop = $('.modal-wrap');
+    var modalBg = $('.modal-bg'); 
+
+    $(modalPop).show();
+    $(modalBg).show();
+
+}
+
+ function popClose() {
+   var modalPop = $('.modal-wrap');
+   var modalBg = $('.modal-bg');
+
+   $(modalPop).hide();
+   $(modalBg).hide();
+
+   var date = $.datepicker.formatDate("yy-mm-dd",$(".datepicker").datepicker("getDate")); 
+   $('#date').text(date); // + $(".timepicker").timepicker("getTime"))
+
+}
+    

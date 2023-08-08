@@ -15,17 +15,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
         integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
-<link rel="stylesheet" href="//cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.css">
-<script src='//cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.js'></script>
-<script>
-$(function() {
-    $('.timepicker').timepicker();
-});
-</script>
+    <link rel="stylesheet" href="//cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.css">
+    <script src='//cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.js'></script>
+    <script>
+        $(function () {
+            $('.timepicker').timepicker();
+        });
+    </script>
 </head>
 
 <body>
@@ -41,8 +41,8 @@ $(function() {
             <div class="container">
                 <!-- 팝업용 임시 버튼입니다. -->
                 <div class="btn-box">
-                    <a href="#" class="btn-open" onClick="javascript:popOpen();">
-                        <span id = date>열기</span>
+                    <a class="btn-open" onClick="javascript:popOpen();">
+                        <span id=date>열기</span>
                     </a>
                 </div>
                 <!-- //팝업용 임시 버튼입니다. -->
@@ -63,14 +63,11 @@ $(function() {
                     showOtherMonths: true,
                     showMonthAfterYear: true,
                     changeMonth: true,
-                    yearSuffix: '년',
-                    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-                    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
                     defaultDate: null,
                     beforeShowDay: noBefore, // 아래에 원하는 함수 사용하시면 됩니다.
                 }).datepicker;
 
-                function noBefore(date){
+                function noBefore(date) {
                     if (date < new Date())
                         return [false];
                     return [true];
@@ -106,8 +103,8 @@ $(function() {
         <button class="modal-close" onClick="javascript:popClose();">닫기</button>
     </div>
     <!-- //modal 영역 -->
-    
-    
+
+
 
 </body>
 
