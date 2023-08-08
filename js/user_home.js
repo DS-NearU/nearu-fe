@@ -18,6 +18,7 @@ async function postRequest(){
             "duration_hours" : duration_hours,
             "location" : loc,
         })
+        
     }).then((response) =>{
         if (response.status == 500) {
             alert("Your appointment date has to be later than 24 hours from now.")
@@ -25,6 +26,7 @@ async function postRequest(){
 
     })    
 
+    window.location.reload()
 }
 
 
