@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./calendar.css">
+    <script src="./calendar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+        integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+        integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" href="//cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.css">
+<script src='//cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.js'></script>
+<script>
+$(function() {
+    $('.timepicker').timepicker();
+});
+</script>
+</head>
+
+<body>
+    <div id="test">jQuery 테스트입니다.</div>
+
+    <script>
+        $('#test').css('border', '1px solid blue')
+    </script>
+    <!-- 전체 레이아웃 -->
+    <div id="wrap">
+        <!-- Content -->
+        <section class="content">
+            <div class="container">
+                <!-- 팝업용 임시 버튼입니다. -->
+                <div class="btn-box">
+                    <a href="#" class="btn-open" onClick="javascript:popOpen();">
+                        <span id = date>열기</span>
+                    </a>
+                </div>
+                <!-- //팝업용 임시 버튼입니다. -->
+            </div>
+        </section>
+        <input type="text" class='timepicker'>
+        <!-- //Content -->
+    </div>
+    <!-- //전체 레이아웃 -->
+
+    <!-- modal 영역 -->
+    <div class="modal-bg" onClick="javascript:popClose();"></div>
+    <div class="modal-wrap">
+        <input class="datepicker">
+        <script>
+            $(function () {
+                $('.datepicker').datepicker({
+                    showOtherMonths: true,
+                    showMonthAfterYear: true,
+                    changeMonth: true,
+                    yearSuffix: '년',
+                    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+                    defaultDate: null,
+                    beforeShowDay: noBefore, // 아래에 원하는 함수 사용하시면 됩니다.
+                }).datepicker;
+
+                function noBefore(date){
+                    if (date < new Date())
+                        return [false];
+                    return [true];
+                }
+
+                // 주말만 막기(토, 일 disable)
+                function disableWeekends(date) {
+                    var noWeekend = jQuery.datepicker.noWeekends(date);
+                    return noWeekend[0] ? [true] : noWeekend;
+                }
+
+
+                // 특정 요일 막기
+                // 일요일(0), 월요일(1), 화요일(2), 수요일(3), 목요일(4), 금요일(5), 토요일(6)
+                function disableDay(date) {
+                    return [date.getDay() != 0, ''];
+                }
+
+
+                // 특정일 막기
+                let Days = ["2023-1-5", "2023-1-10", "2023-1-25"];
+                function disableDays(date) {
+                    var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+                    for (i = 0; i < Days.length; i++) {
+                        if ($.inArray(y + '-' + (m + 1) + '-' + d, Days) != -1) {
+                            return [false];
+                        }
+                    }
+                    return [true];
+                }
+            })
+        </script>
+        <button class="modal-close" onClick="javascript:popClose();">닫기</button>
+    </div>
+    <!-- //modal 영역 -->
+    
+    
+
+</body>
+
+</html>
