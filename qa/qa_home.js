@@ -87,7 +87,6 @@ async function getQDetail() {
     const q_content = document.getElementById('question_content')
     q_content.innerText = `${response.question.question}`
 
-
     comments.map((com) => {
 
         const form = document.getElementById('commentSpace')

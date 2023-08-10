@@ -30,8 +30,13 @@
 <body>
     <div class = "most_top">
         <div class = "navbar">
+
+            <div class = "logo">
+                <img width="15%" src="../../image/nearUlogo.jpg" alt = "instructions pic">
+            </div>
+    
             <ul>
-                <li><a href = "../../html/profile/view_profile.html">My Profile</a></li>
+                <li><a href = "../../html/profile/view_profile.html" class="image_user">My Profile</a></li>
             </ul>
         </div>
     </div>
@@ -77,6 +82,23 @@
             </div>
         </div>
     </div>
+    
+    <div>
+        <table id="user_application_list" style="width:100%">
+            <tr>
+                <th>Created At</th>
+                <th>Reservation Date</th>
+                <th>Due Date</th>
+                <th>소요시간</th>
+                <th>만나는 장소</th>
+                <th>Matching 여부</th>
+                <th>Conditions</th>
+            </tr>
+        </table>
+        <script>
+            getUserApplication()
+        </script>
+    </div>
 
     <div class = "most_bottom">
         <div class = "logo_small">
@@ -101,8 +123,6 @@
                 <img width = 90% src="../../image/kakaologo.jpg" alt="KakaoTalk">
             </div>
         </div>
-        
-        
     </div>
     
     <div class="modal-bg" onClick="javascript:popClose();"></div>
@@ -127,5 +147,6 @@
         </script>
         <button class="modal-close" onClick="javascript:popClose();">확인</button>
     </div>
+
 </body>
 </html>

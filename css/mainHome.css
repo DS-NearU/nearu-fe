@@ -95,7 +95,8 @@ ul li a {
 }
 
 .logo_small {
-    width: 15%
+    margin-top:-10px;
+    width: 15%;
 }
 
 .contactInfo {
@@ -104,7 +105,7 @@ ul li a {
 
 .user_contactInfo {
     font-size: 10px;
-    margin-left: 500px;
+    margin-right: 10px;
 }
 
 
