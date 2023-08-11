@@ -78,8 +78,13 @@
 <body>
     <div class = "most_top">
         <div class = "navbar">
+
+            <div class = "logo">
+                <img width="15%" src="../../image/nearUlogo.jpg" alt = "instructions pic">
+            </div>
+    
             <ul>
-                <li><a href = "../../html/profile/view_profile.html">My Profile</a></li>
+                <li><a href = "../../html/profile/view_profile.html" class="image_user">My Profile</a></li>
             </ul>
         </div>
     </div>
@@ -113,8 +118,13 @@
                     </span>
                    
                 </div>
+<<<<<<< HEAD
                 <div class = "location" id="meet">location</div>
                 <input type="button" onclick="sample6_execDaumPostcode()" value="주소 찾기"><br>
+=======
+                주소 :
+                <span class = "location" id="meet">location</span>
+>>>>>>> 7b4185af709e2f148b74f62a635fc379ade6fb65
             </div>
             <div class = "textbox">
                 <textarea class="textbox" placeholder="병원의 이름과 방문사유를 적어주세요!" id = "reasons"></textarea>
@@ -122,9 +132,25 @@
 
             <div class="submit_button">
                 <input id="button" type="submit" value="예약하기" onclick=postRequest()>
-                <!--onclick으로 JS에서 POST/PUT해주고 그다음에 성공적으로 올라갔다는 예약 확인 창 또는 alert로 문자 띄우기-->
             </div>
         </div>
+    </div>
+    
+    <div>
+        <table id="user_application_list" style="width:100%">
+            <tr>
+                <th>Created At</th>
+                <th>Reservation Date</th>
+                <th>Due Date</th>
+                <th>소요시간</th>
+                <th>만나는 장소</th>
+                <th>Matching 여부</th>
+                <th>Conditions</th>
+            </tr>
+        </table>
+        <script>
+            getUserApplication()
+        </script>
     </div>
 
     <div class = "most_bottom">
@@ -150,8 +176,6 @@
                 <img width = 90% src="../../image/kakaologo.jpg" alt="KakaoTalk">
             </div>
         </div>
-        
-        
     </div>
     
     <div class="modal-bg" onClick="javascript:popClose();"></div>
@@ -176,5 +200,6 @@
         </script>
         <button class="modal-close" onClick="javascript:popClose();">확인</button>
     </div>
+
 </body>
 </html>

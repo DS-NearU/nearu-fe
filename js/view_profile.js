@@ -172,36 +172,42 @@ async function getNotification() {
 
 function addField() {
 
-    const form = document.getElementById('formtest')
+        const form = document.getElementById('formtest')
+        if (form.children.length<4) {
+            const field = document.createElement('div')
+            field.class = "field"
     
-    const field = document.createElement('div')
-    field.class = "field"
+            
+            const fav_type = document.createElement('select')
+            const fav_option_house = document.createElement('option')
+            const fav_option_hospital = document.createElement('option')
+            fav_option_house.value = "house"
+            fav_option_house.innerText = "house"
+            fav_option_hospital.value = "hospital"
+            fav_option_hospital.innerText = "hospital"
+            fav_type.appendChild(fav_option_house)
+            fav_type.appendChild(fav_option_hospital)
+        
+            const fav_address = document.createElement('input')
+            fav_address.type = "text"
+        
+            const fav_minus = document.createElement('span')   
+            fav_minus.innerText = "-"
+        
+            fav_minus.addEventListener("click", (e) => {
+                form.removeChild(field)
+            })   
+            
+            field.appendChild(fav_type)
+            field.appendChild(fav_address)
+            field.appendChild(fav_minus)
+            form.appendChild(field)
     
-    const fav_type = document.createElement('select')
-    const fav_option_house = document.createElement('option')
-    const fav_option_hospital = document.createElement('option')
-    fav_option_house.value = "house"
-    fav_option_house.innerText = "house"
-    fav_option_hospital.value = "hospital"
-    fav_option_hospital.innerText = "hospital"
-    fav_type.appendChild(fav_option_house)
-    fav_type.appendChild(fav_option_hospital)
-
-    const fav_address = document.createElement('input')
-    fav_address.type = "text"
-
-    const fav_minus = document.createElement('span')   
-    fav_minus.innerText = "-"
-
-    fav_minus.addEventListener("click", (e) => {
-        form.removeChild(field)
-    })   
-    
-    field.appendChild(fav_type)
-    field.appendChild(fav_address)
-    field.appendChild(fav_minus)
-    form.appendChild(field)
-
+        }
+        else {
+            alert("You may save up to 4 favorite locations.")
+        }
+      
 }
 
 async function postFavorites() { // 버튼을 눌렀을때

@@ -5,7 +5,7 @@ async function postRequest(){
     let duration_hours = document.getElementById("duration").value
     let loc = document.getElementById("meet").innerText
      
-    let response;
+if (conditions&&duration_hours&&loc&&d_day) {
     await fetch (url, {
         method: "POST",
         headers: {
@@ -18,12 +18,17 @@ async function postRequest(){
             "duration_hours" : duration_hours,
             "location" : loc,
         })
+        
     }).then((response) =>{
         if (response.status == 500) {
             alert("Your appointment date has to be later than 24 hours from now.")
         }
     })    
-
+    window.location.reload()
+}
+else {
+    alert("Please fill in all the informations including date.")
+}
 }
 
 
@@ -49,3 +54,42 @@ function popOpen() {
 
 }
     
+async function getUserApplication() { // 전체 다 보기
+    let url = "http://127.0.0.1:8080/my-applications?user_id=nearu"
+
+    let table = document.getElementById("user_application_list")
+    await fetch (url)
+    .then((response) => response.json())
+    .then((data) => {
+        data.map((e) => {
+            console.log(e)
+            let tr = document.createElement("TR");
+            var created_at = document.createElement( "TD" ); 
+            var d_day = document.createElement( "TD" ); 
+            var due_date = document.createElement( "TD" ); 
+            var duration_hours = document.createElement( "TD" ); 
+            var location = document.createElement( "TD" ); 
+            var status = document.createElement( "TD" ); 
+            var conditions = document.createElement( "TD" ); 
+
+            created_at.innerHTML = `${e.created_at}`
+            d_day.innerHTML = `${e.dday}`
+            due_date.innerHTML = `${e.due_date}`
+            duration_hours.innerHTML = `${e.duration_hours}`
+            location.innerHTML = `${e.location}`
+            status.innerHTML = `${e.status}`
+            conditions.innerHTML = `${e.conditions}`
+        
+            tr.appendChild(created_at)
+            tr.appendChild(d_day)
+            tr.appendChild(due_date)
+            tr.appendChild(duration_hours)
+            tr.appendChild(location)
+            tr.appendChild(status)
+            tr.appendChild(conditions)
+            table.appendChild(tr)
+        })
+
+    })
+
+}
