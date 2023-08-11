@@ -156,3 +156,18 @@ i[class^=icon-chevron] {
     background: #fff;
     z-index: 1000;
 }
+
+#user_application_list {
+    overflow: auto;
+    white-space: nowrap;
+    border: 2px solid red;
+
+}
+
+.card{
+    border: 2px solid yellow;
+    width: 400px;
+    height: 150px;
+    display: inline-block;
+
+}

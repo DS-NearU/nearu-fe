@@ -1,5 +1,5 @@
 async function postRequest(){
-    let url = "http://127.0.0.1:8080/application"
+    let url = "http://210.109.62.129:8080/application"
     let conditions = document.getElementById("reasons").value
     let d_day = document.getElementById("date").innerText
     let duration_hours = document.getElementById("duration").value
@@ -63,33 +63,44 @@ async function getUserApplication() { // 전체 다 보기
     .then((data) => {
         data.map((e) => {
             console.log(e)
-            let tr = document.createElement("TR");
-            var created_at = document.createElement( "TD" ); 
-            var d_day = document.createElement( "TD" ); 
-            var due_date = document.createElement( "TD" ); 
-            var duration_hours = document.createElement( "TD" ); 
-            var location = document.createElement( "TD" ); 
-            var status = document.createElement( "TD" ); 
-            var conditions = document.createElement( "TD" ); 
+            let card = document.createElement("DIV");
+            card.className = 'card'
+            let name = document.createElement("DIV");
+            name.innerText = `이름 : ${e.admin.user_info.name}`
+            let date = document.createElement("DIV");
+            let d_day = new Date(e.dday)
+            date.innerText = `${toStringByFormatting(d_day)} ${d_day.toLocaleTimeString()}`
+            let duration = document.createElement("DIV")
+            duration.innerText = `${e.duration_hours} hrs`
+            
 
-            created_at.innerHTML = `${e.created_at}`
-            d_day.innerHTML = `${e.dday}`
-            due_date.innerHTML = `${e.due_date}`
-            duration_hours.innerHTML = `${e.duration_hours}`
-            location.innerHTML = `${e.location}`
-            status.innerHTML = `${e.status}`
-            conditions.innerHTML = `${e.conditions}`
-        
-            tr.appendChild(created_at)
-            tr.appendChild(d_day)
-            tr.appendChild(due_date)
-            tr.appendChild(duration_hours)
-            tr.appendChild(location)
-            tr.appendChild(status)
-            tr.appendChild(conditions)
-            table.appendChild(tr)
+
+            card.appendChild(name)
+            card.appendChild(date)
+            card.appendChild(duration)
+            table.appendChild(card)
+            
         })
 
     })
 
 }
+
+
+function leftPad(value) {
+    if (value >= 10) {
+        return value;
+    }
+
+    return `0${value}`;
+}
+
+function toStringByFormatting(source, delimiter = '-') {
+    const year = source.getFullYear();
+    const month = leftPad(source.getMonth() + 1);
+    const day = leftPad(source.getDate());
+
+    return [year, month, day].join(delimiter);
+}
+
+toStringByFormatting(new Date(2021, 0, 1));
