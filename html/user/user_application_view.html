@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View my applicants</title>
+    <link rel="stylesheet" href="../../css/user_home.css">
+    <link rel="stylesheet" href="../../css/mainHome.css">
+    <script src="../../js/user_home.js"></script>
+
+</head>
+<body>
+    <div class = "most_top">
+        <div class = "navbar">
+
+            <div class = "logo">
+                <img width="15%" src="../../image/nearUlogo.jpg" alt = "instructions pic">
+            </div>
+    
+            <ul>
+                <li><a href = "../../html/profile/view_profile.html" class="image_user">My Profile</a></li>
+            </ul>
+    
+        </div>
+    </div>
+
+    <div class = "view_application_detail">
+        <div class = "detail_left">
+            <h3>예약정보</h3>
+            
+            <div class="title">봉사자 : </div>
+            <div class ="volunteer" id = "volunteer"></div>
+
+            <div class="title">예약 날짜 : </div>
+            <div class ="date" id="date"></div>
+
+            <div class="title">신청 유효기간 : </div>
+            <div class ="expire" id="expire"></div>
+
+            <div class="title">소요 시간 : </div>
+            <div class ="dur_hour" id="dur_hour"></div>
+
+            <div class="title">만나시는 장소 : </div>
+            <div class ="location" id="location"></div>
+
+            <div class="title">병원 / 구체적인 정보 : </div>
+            <div class ="details" id="details"></div>
+
+            <div class="title">매칭 여부 :</div>
+            <div class ="status" id="status"></div>
+
+            <script>
+                getApplicationDetail()
+            </script>
+        </div>
+        <div class = "detail_right">
+
+        </div>
+    </div>
+
+    <div class = "most_bottom">
+        <div class = "logo_small">
+            <img width="100%" src="../../image/nearUlogo.jpg" alt = "instructions pic">
+        </div>
+        
+        <div class = "user_contactInfo">
+            <div>Tel. 010 1234 5678</div>
+            <div>Address. 인천광역시 서구 경서동 834-128 청라달튼외국인학교</div>
+            <div class = "info_user">
+                <li><a href = "#">이용약관</a></li>
+                <li><a href = "#">개인정보 처리 방침</a></li>
+                <li><a href = "#">NearU 매뉴얼</a></li>
+            </div>
+        </div>
+        
+        <div class = "socials">
+            <div class = "insta">
+                <img width = 80% src="../../image/instalogo.png" alt="Instagram">
+            </div>
+            <div class = "kakao">
+                <img width = 90% src="../../image/kakaologo.jpg" alt="KakaoTalk">
+            </div>
+        </div>
+    </div>
+
+
+    
+    
+</body>
+</html>
