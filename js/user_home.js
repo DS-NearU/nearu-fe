@@ -206,7 +206,7 @@ async function editApplication() {
     let locations = document.getElementById("location")
     let details = document.getElementById("details")
 
-    // if 걸어주기
+    // if 걸어주기 --> HTTP Exception 해놓음
     await fetch (url, {
         method: "PUT",
         headers: {
