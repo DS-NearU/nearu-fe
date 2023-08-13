@@ -4,7 +4,7 @@ async function postRequest(){
     let d_day = document.getElementById("date").innerText
     let duration_hours = document.getElementById("duration").value
     let loc = document.getElementById("meet").innerText
-     
+    
 if (conditions&&duration_hours&&loc&&d_day) {
     await fetch (url, {
         method: "POST",
@@ -79,7 +79,6 @@ async function getUserApplication() { // 전체 다 보기
             card.appendChild(date)
             card.appendChild(duration)
             table.appendChild(card)
-            
         })
 
     })
@@ -156,7 +155,7 @@ async function getApplicationDetail(){
     const date = dday_day + ", " + dday_year + "/" + dday_month + "/" + dday_date
     // console.log(date)
     const expire = dday_year + "/" + expire_month + "/" + expire_date
-    const elapse = dday_hour + ":" + dday_min + " - " + dday_hour+response.app.duration_hours + ":" + dday_min
+    const elapse = ("0" + dday_hour).slice(-2) + ":" + ("0" + dday_min).slice(-2) + " - " + ("0" + (dday_hour+response.app.duration_hours)).slice(-2) + ":" + ("0" + dday_min).slice(-2)
     const conditions = response.app.conditions
     let status = response.app.status
 
@@ -167,7 +166,6 @@ async function getApplicationDetail(){
         status = "Not Matched."
     }
     //const location = response.app.location
-
 
     const date_value = document.getElementById('date')
     date_value.innerText = `${date}`
@@ -181,4 +179,44 @@ async function getApplicationDetail(){
     details_value.innerText = `${conditions}`
     const status_value = document.getElementById('status')
     status_value.innerText = `${status}`
+}
+
+async function deleteApplication() {
+    const application_no = location.href.split('?')[1];
+    let url = `http://127.0.0.1:8080/application?${application_no}`
+
+        await fetch(url, {
+            method: "DELETE",
+            headers: {
+                "Content-Type" : "application/json",
+            }
+            
+        })
+    
+    alert("Successfully canceled.")
+    window.location.href='../user/user_home.html'
+}
+
+async function editApplication() {
+    const application_no = location.href.split('?')[1];
+    let url = `http://127.0.0.1:8080/application?${application_no}`
+
+    let date = document.getElementById("date")
+    let dur_hour = document.getElementById("dur_hour")
+    let locations = document.getElementById("location")
+    let details = document.getElementById("details")
+
+    // if 걸어주기
+    await fetch (url, {
+        method: "PUT",
+        headers: {
+            "Content-Type" : "application/json",
+        },
+        body: JSON.stringify({
+            "d_day" : date,
+            "duration_hours" : dur_hour,
+            "location" : locations,
+            "conditions" : details,
+        })
+    })
 }
