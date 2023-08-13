@@ -194,7 +194,7 @@ async function getApplicationDetail() {
     const date = dday_day + ", " + dday_year + "/" + ("0" + dday_month).slice(-2) + "/" + ("0" + dday_date).slice(-2)
     // console.log(date)
     const expire = dday_year + "/" + expire_month + "/" + expire_date
-    
+    const elapse = ("0" + dday_hour).slice(-2) + ":" + ("0" + dday_min).slice(-2) + " - " + ("0" + (dday_hour+response.app.duration_hours)).slice(-2) + ":" + ("0" + dday_min).slice(-2)
 
     const conditions = response.app.conditions
     let status = response.app.status
@@ -220,8 +220,8 @@ async function getApplicationDetail() {
     expire_value.innerText = `${expire}`
     const dur_hour_value = document.getElementById('dur_hour')
     dur_hour_value.innerText = `${elapse}`
-    const location_value = document.getElementById('location')
-    location_value.innerText = `${location}`
+    const location_value = document.getElementById('meet')
+    location_value.innerText = `${locations}`
     const details_value = document.getElementById('details')
     details_value.innerText = `${conditions}`
     $('#reasons').val(`${conditions}`)
