@@ -4,8 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NearU Service starts here - Volunteer.</title>
+    <link rel="stylesheet" href="../../css/user_home.css">
+    <link rel="stylesheet" href="../../css/mainHome.css">
+    <script src = "../../js/stud_home.js"></script>
 </head>
 <body>
+    <div class = "most_top">
+        <div class = "navbar">
+
+            <div class = "logo">
+                <img width="15%" src="../../image/nearUlogo.jpg" alt = "instructions pic">
+            </div>
     
+            <ul>
+                <li><a href = "../../html/profile/view_profile.html" class="image_user">My Profile</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "selected_applications">
+        <!--if chosen by that volunteer-->
+    </div>
+
+    <div class = "application_list">
+        <table id="app_table" style="width:100%">
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Location</th>
+            </tr>
+        </table>
+        <div class="view_detail">
+            <!-- applicationNo 값 같이 넘겨줘야 함 -->
+            <input id="button" type="submit" value ="Full Information" onclick="window.location.href='./stud_application_view.html'">
+        </div>
+        <script>
+            getAllApplication()
+        </script>
+    </div>
+
+    <div class = "most_bottom">
+        <div class = "logo_small">
+            <img width="100%" src="../../image/nearUlogo.jpg" alt = "instructions pic">
+        </div>
+        
+        <div class = "user_contactInfo">
+            <div>Tel. 010 1234 5678</div>
+            <div>Address. 인천광역시 서구 경서동 834-128 청라달튼외국인학교</div>
+            <div class = "info_user">
+                <li><a href = "#">이용약관</a></li>
+                <li><a href = "#">개인정보 처리 방침</a></li>
+                <li><a href = "#">NearU 매뉴얼</a></li>
+            </div>
+        </div>
+        
+        <div class = "socials">
+            <div class = "insta">
+                <img width = 80% src="../../image/instalogo.png" alt="Instagram">
+            </div>
+            <div class = "kakao">
+                <img width = 90% src="../../image/kakaologo.jpg" alt="KakaoTalk">
+            </div>
+        </div>
+    </div>
 </body>
 </html>

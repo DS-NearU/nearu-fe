@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View my applicants</title>
+    <title>View Application Details</title>
     <link rel="stylesheet" href="../../css/user_home.css">
     <link rel="stylesheet" href="../../css/mainHome.css">
-    <script src="../../js/user_home.js"></script>
+    <script src="../../js/stud_home.js"></script>
 
 <!--This is HTML for viewing each application.-->
 </head>
@@ -28,20 +28,19 @@
     <div class = "view_application_detail">
         <div class = "detail_left">
             <h3>예약정보</h3>
-            
-            <div class="title">봉사자 : </div>
-            <div class ="volunteer" id = "volunteer"></div>
+            <div class="title">신청자 성함 : </div>
+            <div class ="user" id = "user"></div>
 
             <div class="title">예약 날짜 : </div>
             <div class ="date" id="date"></div>
 
-            <div class="title">신청 유효기간 : </div>
-            <div class ="expire" id="expire"></div>
+            <div class="title">예약 시간 : </div>
+            <div class ="time" id="time"></div>
 
             <div class="title">소요 시간 : </div>
             <div class ="dur_hour" id="dur_hour"></div>
 
-            <div class="title">만나시는 장소 : </div>
+            <div class="title">만나는 장소 : </div>
             <div class ="location" id="location"></div>
 
             <div class="title">병원 / 구체적인 정보 : </div>
@@ -49,21 +48,20 @@
 
             <div class="title">매칭 여부 :</div>
             <div class ="status" id="status"></div>
-
-            <script>
-                getApplicationDetail()
-            </script>
         </div>
         <div class = "detail_right">
-            <div class="delete_button">
-                <input id="button" type="submit" value="예약 지우기" onclick=deleteApplication()>
+            <div class="register_button">
+                <input id="button" type="submit" value="봉사신청 수락" onclick=registerApp()>
             </div>
-            <div class="edit_buton">
-                <input id="button" type="submit" value ="예약 수정하기" onclick="window.location.href='./user_application_edit.html'">
+            <div class="cancel_button">
+                <input id="button" type="submit" value="봉사신청 취소" onclick=cancelRegister()>
             </div>
         </div>
+        <script>
+            getStudVerAppDetail()
+        </script>
     </div>
-
+    
     <div class = "most_bottom">
         <div class = "logo_small">
             <img width="100%" src="../../image/nearUlogo.jpg" alt = "instructions pic">

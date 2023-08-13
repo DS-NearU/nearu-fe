@@ -72,8 +72,6 @@ async function getUserApplication() { // 전체 다 보기
             date.innerText = `${toStringByFormatting(d_day)} ${d_day.toLocaleTimeString()}`
             let duration = document.createElement("DIV")
             duration.innerText = `${e.duration_hours} hrs`
-            
-
 
             card.appendChild(name)
             card.appendChild(date)
@@ -165,7 +163,7 @@ async function getApplicationDetail(){
     else {
         status = "Not Matched."
     }
-    //const location = response.app.location
+    const location = response.app.location
 
     const date_value = document.getElementById('date')
     date_value.innerText = `${date}`
@@ -173,8 +171,8 @@ async function getApplicationDetail(){
     expire_value.innerText = `${expire}`
     const dur_hour_value = document.getElementById('dur_hour')
     dur_hour_value.innerText = `${elapse}`
-    // const location_value = document.getElementById('location')
-    // location_value.innerText = `${location}`
+    const location_value = document.getElementById('location')
+    location_value.innerText = `${location}`
     const details_value = document.getElementById('details')
     details_value.innerText = `${conditions}`
     const status_value = document.getElementById('status')
