@@ -1,63 +1,64 @@
-async function postRequest(){
-    let url = "http://210.109.62.129:8080/application"
+let base_url = "http://210.109.62.129:8080/"
+async function postRequest() {
+    let url = `${base_url}application`
     let conditions = document.getElementById("reasons").value
     let d_day = document.getElementById("date").innerText
     let duration_hours = document.getElementById("duration").value
     let loc = document.getElementById("meet").innerText
-    
-if (conditions&&duration_hours&&loc&&d_day) {
-    await fetch (url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            "user_id" : "nearu",
-            "conditions" : conditions,
-            "d_day" : $.datepicker.formatDate("yy-mm-dd",$(".datepicker").datepicker("getDate")) + " " + $(".timepicker").timepicker("getTime") + ":00",
-            "duration_hours" : duration_hours,
-            "location" : loc,
+    if (conditions && duration_hours && loc && d_day) {
+        await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                "user_id": "nearu",
+                "conditions": conditions,
+                "d_day": $.datepicker.formatDate("yy-mm-dd", $(".datepicker").datepicker("getDate")) + " " + $(".timepicker").timepicker("getTime") + ":00",
+                "duration_hours": duration_hours,
+                "location": loc,
+            })
+
+        }).then((response) => {
+            if (response.status == 500) {
+                alert("Your appointment date has to be later than 24 hours from now.")
+            }
         })
-        
-    }).then((response) =>{
-        if (response.status == 500) {
-            alert("Your appointment date has to be later than 24 hours from now.")
-        }
-    })    
-    window.location.reload()
-}
-else {
-    alert("Please fill in all the informations including date.")
-}
+        window.location.reload()
+    }
+    else {
+        alert("Please fill in all the informations including date.")
+    }
 }
 
 
 function popOpen() {
 
     var modalPop = $('.modal-wrap');
-    var modalBg = $('.modal-bg'); 
+    var modalBg = $('.modal-bg');
 
     $(modalPop).show();
     $(modalBg).show();
 
 }
 
- function popClose() {
-   var modalPop = $('.modal-wrap');
-   var modalBg = $('.modal-bg');
+function popClose() {
+    var modalPop = $('.modal-wrap');
+    var modalBg = $('.modal-bg');
 
-   $(modalPop).hide();
-   $(modalBg).hide();
+    $(modalPop).hide();
+    $(modalBg).hide();
 
-   var date = $.datepicker.formatDate("yy-mm-dd",$(".datepicker").datepicker("getDate")); 
-   $('#date').text(date); // + $(".timepicker").timepicker("getTime"))
+    var date = $.datepicker.formatDate("yy-mm-dd", $(".datepicker").datepicker("getDate"));
+    $('#date').text(date); // + $(".timepicker").timepicker("getTime"))
 
 }
-    
+
 async function getUserApplication() { // 전체 다 보기
-    let url = "http://127.0.0.1:8080/my-applications?user_id=nearu"
+    let url = `${base_url}my-applications?user_id=nearu`
 
     let table = document.getElementById("user_application_list")
+<<<<<<< HEAD
     await fetch (url)
     .then((response) => response.json())
     .then((data) => {
@@ -72,14 +73,73 @@ async function getUserApplication() { // 전체 다 보기
             date.innerText = `${toStringByFormatting(d_day)} ${d_day.toLocaleTimeString()}`
             let duration = document.createElement("DIV")
             duration.innerText = `${e.duration_hours} hrs`
+=======
+    let isMouseDown = false;
+    let startX, scrollLeft;
+    table.addEventListener('mousedown', (e) => {
+        isMouseDown = true;
+        table.classList.add('active');
 
-            card.appendChild(name)
-            card.appendChild(date)
-            card.appendChild(duration)
-            table.appendChild(card)
+        startX = e.pageX - table.offsetLeft;
+        scrollLeft = table.scrollLeft;
+    });
+
+    table.addEventListener('mouseleave', () => {
+        isMouseDown = false;
+        table.classList.remove('active');
+    });
+
+    table.addEventListener('mouseup', () => {
+        isMouseDown = false;
+        table.classList.remove('active');
+    });
+
+    table.addEventListener('mousemove', (e) => {
+        if (!isMouseDown) return;
+
+        e.preventDefault();
+        const x = e.pageX - table.offsetLeft;
+        const walk = (x - startX) * 1;
+        table.scrollLeft = scrollLeft - walk;
+    });
+    await fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            data.map((e) => {
+                console.log(e)
+                let card = document.createElement("DIV")
+                card.className = 'card'
+                let name = document.createElement("DIV")
+                name.innerText = `이름 : ${e.admin.user_info.name}`
+                let date = document.createElement("DIV")
+                let d_day = new Date(e.dday)
+                date.innerText = `${toStringByFormatting(d_day)} ${d_day.toLocaleTimeString()}`
+                let duration = document.createElement("DIV")
+                duration.innerText = `${e.duration_hours} hrs`
+
+                let button = document.createElement("BUTTON")
+                button.innerText = 'Full info'
+                button.style.cursor = 'pointer'
+                button.addEventListener('click', () =>{
+                    let app_no = e.application_no
+                    window.location.href = `./user_application_view.html?application_no=${app_no}`
+                })
+
+
+                card.appendChild(name)
+                card.appendChild(date)
+                card.appendChild(duration)
+                card.appendChild(button)
+                table.appendChild(card)
+            
+
+>>>>>>> 6dfee7efdee51a33f064a0f4096fe79fd85482b7
+
+
+            })
+
+
         })
-
-    })
 
 }
 
@@ -102,14 +162,14 @@ function toStringByFormatting(source, delimiter = '-') {
 
 // Day - number 형태로 Mon/Tues
 // Date - 날짜
-async function getApplicationDetail(){
+async function getApplicationDetail() {
     const application_no = location.href.split('?')[1];
-    let url = `http://127.0.0.1:8080/application-detail?${application_no}` // BE에서 새로 만든 function 써줌
+    let url = `${base_url}application-detail?${application_no}` // BE에서 새로 만든 function 써줌
     let response;
     await fetch(url).then((response) => response.json()).then((data) => {
-        response = data; 
-    })    
-    
+        response = data;
+    })
+
     const volunteers = response.applicants
     volunteers.map((vol) => {
         // console.log(vol.name)
@@ -147,13 +207,14 @@ async function getApplicationDetail(){
     }
 
     const expire_month = new Date(response.app.due_date).getMonth()
-    const expire_date =  new Date(response.app.due_date).getDate()
+    const expire_date = new Date(response.app.due_date).getDate()
 
     // actually 들어가는 것들 조합
     const date = dday_day + ", " + dday_year + "/" + dday_month + "/" + dday_date
     // console.log(date)
     const expire = dday_year + "/" + expire_month + "/" + expire_date
     const elapse = ("0" + dday_hour).slice(-2) + ":" + ("0" + dday_min).slice(-2) + " - " + ("0" + (dday_hour+response.app.duration_hours)).slice(-2) + ":" + ("0" + dday_min).slice(-2)
+
     const conditions = response.app.conditions
     let status = response.app.status
 
