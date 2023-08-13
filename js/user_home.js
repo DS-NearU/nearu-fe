@@ -115,9 +115,7 @@ async function getUserApplication() { // 전체 다 보기
                 card.appendChild(duration)
                 card.appendChild(button)
                 table.appendChild(card)
-            
-
-
+        
 
             })
 
@@ -207,6 +205,7 @@ async function getApplicationDetail() {
     else {
         status = "Not Matched."
     }
+
     const locations = response.app.location
 
     const date_value = document.getElementById('date')
@@ -220,9 +219,9 @@ async function getApplicationDetail() {
     const expire_value = document.getElementById('expire')
     expire_value.innerText = `${expire}`
     const dur_hour_value = document.getElementById('dur_hour')
-    dur_hour_value.innerText = `${response.app.duration_hours} hours`
-    const location_value = document.getElementById('meet')
-    location_value.innerText = `${locations}`
+    dur_hour_value.innerText = `${elapse}`
+    const location_value = document.getElementById('location')
+    location_value.innerText = `${location}`
     const details_value = document.getElementById('details')
     details_value.innerText = `${conditions}`
     $('#reasons').val(`${conditions}`)

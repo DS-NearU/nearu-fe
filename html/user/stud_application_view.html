@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NearU Service starts here - Volunteer.</title>
+    <title>View Application Details</title>
     <link rel="stylesheet" href="../../css/user_home.css">
     <link rel="stylesheet" href="../../css/mainHome.css">
-    <script src = "../../js/stud_home.js"></script>
+    <script src="../../js/stud_home.js"></script>
+
+<!--This is HTML for viewing each application.-->
 </head>
 <body>
     <div class = "most_top">
@@ -19,31 +21,47 @@
             <ul>
                 <li><a href = "../../html/profile/view_profile.html" class="image_user">My Profile</a></li>
             </ul>
+    
         </div>
     </div>
 
-    <div class = "selected_applications">
-        <!--if chosen by that volunteer-->
-    </div>
+    <div class = "view_application_detail">
+        <div class = "detail_left">
+            <h3>예약정보</h3>
+            <div class="title">신청자 성함 : </div>
+            <div class ="user" id = "user"></div>
 
-    <div class = "application_list">
-        <table id="app_table" style="width:100%">
-            <tr>
-                <th>Name</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Location</th>
-            </tr>
-        </table>
-        <div class="view_detail">
-            <!-- applicationNo 값 같이 넘겨줘야 함 -->
-            <input id="button" type="submit" value ="Full Information" onclick="window.location.href='./stud_application_view.html'">
+            <div class="title">예약 날짜 : </div>
+            <div class ="date" id="date"></div>
+
+            <div class="title">예약 시간 : </div>
+            <div class ="time" id="time"></div>
+
+            <div class="title">소요 시간 : </div>
+            <div class ="dur_hour" id="dur_hour"></div>
+
+            <div class="title">만나는 장소 : </div>
+            <div class ="location" id="location"></div>
+
+            <div class="title">병원 / 구체적인 정보 : </div>
+            <div class ="details" id="details"></div>
+
+            <div class="title">매칭 여부 :</div>
+            <div class ="status" id="status"></div>
+        </div>
+        <div class = "detail_right">
+            <div class="register_button">
+                <input id="button" type="submit" value="봉사신청 수락" onclick=registerApp()>
+            </div>
+            <div class="cancel_button">
+                <input id="button" type="submit" value="봉사신청 취소" onclick=cancelRegister()>
+            </div>
         </div>
         <script>
-            getAllApplication()
+            getStudVerAppDetail()
         </script>
     </div>
-
+    
     <div class = "most_bottom">
         <div class = "logo_small">
             <img width="100%" src="../../image/nearUlogo.jpg" alt = "instructions pic">
