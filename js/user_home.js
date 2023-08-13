@@ -193,7 +193,7 @@ async function getApplicationDetail() {
     // actually 들어가는 것들 조합
     const date = dday_day + ", " + dday_year + "/" + ("0" + dday_month).slice(-2) + "/" + ("0" + dday_date).slice(-2)
     // console.log(date)
-    const expire = dday_year + "/" + expire_month + "/" + expire_date
+    const expire = dday_year + "/" + ("0" + expire_month).slice(-2) + "/" + ("0" + expire_date).slice(-2)
     const elapse = ("0" + dday_hour).slice(-2) + ":" + ("0" + dday_min).slice(-2) + " - " + ("0" + (dday_hour+response.app.duration_hours)).slice(-2) + ":" + ("0" + dday_min).slice(-2)
 
     const conditions = response.app.conditions
