@@ -134,13 +134,26 @@ async function getStudVerAppDetail() {
 }
 
 async function registerApp() {
+    const application_no = location.href.split('?')[1];
+    const user_no = location.href.split('&')[1];
+    let url = `http://127.0.0.1:8080/register?${application_no}&${user_no}`
 
+    await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+        },
+        body: JSON.stringify({
+            "application_no" : application_no,
+            "user_no": user_no
+        })
+    })
 }
 
 async function cancelRegister() {
     const application_no = location.href.split('?')[1];
     const user_no = location.href.split('&')[1];
-    let url = `http://127.0.0.1:8080/application?${application_no}&${user_no}`
+    let url = `http://127.0.0.1:8080/cancel?${application_no}&${user_no}`
 
     await fetch(url, {
         method: "DELETE",
