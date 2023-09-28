@@ -5,14 +5,14 @@ async function getAllApplication() {
 
     await fetch(url).then((response) => response.json()).then((data) => {
         data.map((e) => {
-
+            console.log(e)
             let tr = document.createElement("TR");
             var name = document.createElement("TD");
             var date = document.createElement("TD");
             var time = document.createElement("TD");
             var location = document.createElement("TD");
 
-          
+            
             const dday_year = new Date(e.app.dday).getFullYear()
             const dday_month = new Date(e.app.dday).getMonth()
             const dday_date = new Date(e.app.dday).getDate()
@@ -49,12 +49,17 @@ async function getAllApplication() {
             date.innerHTML = `${date_value}`
             time.innerHTML = `${elapse}`
             location.innerHTML = `${e.app.location}`
-
+                
             tr.appendChild(name)
             tr.appendChild(date)
             tr.appendChild(time)
             tr.appendChild(location)
             table.appendChild(tr)
+
+            // 모를땐 console.log으로 경로 다시 한번 확인
+            tr.addEventListener('click', ()=>{
+                window.location.href = `./stud_application_view.html?application_no=${e.app.application_no}`
+            })
             
         })
     })

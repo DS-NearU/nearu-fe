@@ -1,4 +1,4 @@
-let base_url = "http://210.109.62.129:8080/"
+let base_url = "http://127.0.0.1:8080/"
 async function postRequest() {
     let url = `${base_url}application`
     let conditions = document.getElementById("reasons").value
@@ -146,16 +146,43 @@ function toStringByFormatting(source, delimiter = '-') {
 async function getApplicationDetail() {
     const application_no = location.href.split('?')[1];
     let url = `${base_url}application-detail?${application_no}` // BE에서 새로 만든 function 써줌
+    let url_two = `${base_url}cancel-student`
+    
     let response;
     await fetch(url).then((response) => response.json()).then((data) => {
         response = data;
     })
 
+    console.log(response)
+
     const volunteers = response.applicants
     volunteers.map((vol) => {
-        // console.log(vol.name)
+        console.log(vol)
+
         const commentSpace = document.getElementById('volunteer')
-        commentSpace.innerText += " " + vol.name
+        commentSpace.innerText += vol.name
+        const name_minus = document.createElement('span')   
+        name_minus.innerText = " x"
+       
+        name_minus.addEventListener("click", async (e) => {
+            commentSpace.innerText = ""
+            name_minus.innerText =""
+
+            await fetch(url_two, {
+                method: "PUT",
+                headers: {
+                    "Content-Type" : "application/json",
+                },
+                body: JSON.stringify({
+                    "application_no" : response.app.application_no,
+                    "user_no" : vol.user_no,
+                })
+                
+            })        
+        })   
+
+        commentSpace.appendChild(name_minus)
+   
     })
 
     const dday_year = new Date(response.app.dday).getFullYear()
@@ -248,11 +275,21 @@ async function deleteApplication() {
 async function editApplication() {
     const application_no = location.href.split('?')[1];
     let url = `http://127.0.0.1:8080/application?${application_no}`
+    
 
-    let date = document.getElementById("date")
-    let dur_hour = document.getElementById("dur_hour")
-    let locations = document.getElementById("location")
-    let details = document.getElementById("details")
+    let date = document.getElementById("date_input").value
+    let dur_hour = document.getElementById("duration").value
+
+    
+    let locations = document.getElementById("meet").innerText
+    let details = document.getElementById("reasons").value
+
+    console.log(date)
+    console.log(dur_hour)
+    console.log(locations)
+    console.log(details)
+
+
 
     // if 걸어주기 --> HTTP Exception 해놓음
     await fetch (url, {
@@ -281,4 +318,6 @@ function editButtonPressed(){
     $('#duration').css('display', 'inline-block');
     $('#add_button').css('display', 'inline-block');
     $('#reasons').css('display', 'inline-block');
+    $('#confirm_button').css('display', 'inline-block');
+
 }
