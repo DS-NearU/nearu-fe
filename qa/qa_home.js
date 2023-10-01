@@ -11,6 +11,7 @@ async function postQ(){
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "nearu_token" : localStorage.getItem("nearu_token")
             },
             body: JSON.stringify({
                 "anonymous" : anonymous,
@@ -32,7 +33,12 @@ async function getQ() {
     let url = "http://210.109.62.129:8080/qa-all"
     let cnt = 1
     let table = document.getElementById("table_list")
-    await fetch (url)
+    await fetch (url, {
+        headers : {
+            "Content-Type" : "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
+        }
+    })
     .then((response) => response.json())
     .then((data) => {
         data.map((e) => {
@@ -70,7 +76,12 @@ async function getQDetail() {
     const qa_no = location.href.split('?')[1];
     let url = `http://127.0.0.1:8080/qa?qa_no=${qa_no}`
     let response;
-    await fetch(url).then((response) => response.json()).then((data) => {
+    await fetch(url, {
+        headers : {
+            "Content-Type": "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
+        }
+    }).then((response) => response.json()).then((data) => {
         response = data; 
     })    
     
@@ -122,6 +133,7 @@ async function postComments() {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
         },
         body: JSON.stringify({
             "user_id" : "nearu", //하드코딩할때 이렇게 함

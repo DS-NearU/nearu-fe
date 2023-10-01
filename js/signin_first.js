@@ -2,20 +2,31 @@ async function signIn() {
     let id = document.getElementById('id').value;
     let password = document.getElementById('password').value;
 
-    console.log(SHA256(password))
+    
+    let url = "http://127.0.0.1:8080/sign-in"
+    let response;
 
-    let url = "http://127.0.0.1:8080/sign-in?user_id=" + id + "&password=" + password
     await fetch(url, {
-        method: "GET",
+        method: "PUT",
         headers: {
-            "Content-Type" : "sign-in/json",
+            "Content-Type" : "application/json",
         },
         body: JSON.stringify({
             "user_id" : id,
-            "password" : password,
+            "password" : SHA256(password),
         })
         
-    })    
+    }).then((response) => response.json()).then((data) => {
+        response = data; 
+    })
+
+    localStorage.setItem("nearu_token", response.session_key)
+    
+    
+
+
+
+
 }
 
 function SHA256(s){

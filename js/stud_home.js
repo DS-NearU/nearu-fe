@@ -3,7 +3,12 @@ async function getAllApplication() {
     let result;
     let table = document.getElementById("app_table")
 
-    await fetch(url).then((response) => response.json()).then((data) => {
+    await fetch(url, {
+        headers : {
+            "Content-Type" : "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
+        }
+    }).then((response) => response.json()).then((data) => {
         data.map((e) => {
             console.log(e)
             let tr = document.createElement("TR");
@@ -69,7 +74,12 @@ async function getStudVerAppDetail() {
     const application_no = location.href.split('?')[1];
     let url = `http://127.0.0.1:8080/application-detail?${application_no}` // BE에서 새로 만든 function 써줌
     let response;
-    await fetch(url).then((response) => response.json()).then((data) => {
+    await fetch(url, {
+        headers : {
+            "Content-Type" : "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
+        }
+    }).then((response) => response.json()).then((data) => {
         response = data; 
     })    
 
@@ -142,6 +152,7 @@ async function registerApp() {
         method: "POST",
         headers: {
             "Content-Type" : "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
         },
         body: JSON.stringify({
             "application_no" : application_no,
@@ -159,6 +170,7 @@ async function cancelRegister() {
         method: "DELETE",
         headers: {
             "Content-Type" : "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
         }
         
     })

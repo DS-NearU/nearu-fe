@@ -1,7 +1,12 @@
 async function getProfile() {
     let url = "http://210.109.62.129:8080/profile?user_id=nearu"
     let profile;
-    await fetch(url).then((response) => response.json()).then((data) => {
+    await fetch(url, {
+        headers : {
+            "Content-Type": "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
+        }
+    }).then((response) => response.json()).then((data) => {
         profile = data; 
     })
 
@@ -44,6 +49,7 @@ async function editProfile() {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
+                "nearu_token" : localStorage.getItem("nearu_token")
             },
             body: JSON.stringify({
                 "name" : name,
@@ -84,11 +90,21 @@ async function getNotification() {
     let url_two = "http://127.0.0.1:8080/favorites?user_id=nearu"
     let notification;
     let favorites;
-    await fetch(url).then((response) => response.json()).then((data) => {
+    await fetch(url, {
+        headers : { 
+            "Content-Type": "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
+        }
+    }).then((response) => response.json()).then((data) => {
         notification = data; 
     })
 
-    await fetch(url_two).then((response) => response.json()).then((data) => {
+    await fetch(url_two, {
+        headers : {
+            "Content-Type": "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
+        }
+    }).then((response) => response.json()).then((data) => {
         favorites = data; 
     })
 
@@ -273,6 +289,7 @@ async function postFavorites() { // 버튼을 눌렀을때
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
         },
         body: JSON.stringify({
             "email_notification" : email,

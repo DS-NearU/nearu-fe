@@ -10,6 +10,7 @@ async function postRequest() {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "nearu_token" : localStorage.getItem("nearu_token")
             },
             body: JSON.stringify({
                 "user_id": "nearu",
@@ -86,7 +87,12 @@ async function getUserApplication() { // 전체 다 보기
         const walk = (x - startX) * 1;
         table.scrollLeft = scrollLeft - walk;
     });
-    await fetch(url)
+    await fetch(url, {
+        headers : {
+            "Content-Type": "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
+        }
+    })
         .then((response) => response.json())
         .then((data) => {
             data.map((e) => {
@@ -149,7 +155,12 @@ async function getApplicationDetail() {
     let url_two = `${base_url}cancel-student`
     
     let response;
-    await fetch(url).then((response) => response.json()).then((data) => {
+    await fetch(url, {
+        headers : {
+            "Content-Type": "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
+        }
+    }).then((response) => response.json()).then((data) => {
         response = data;
     })
 
@@ -172,6 +183,7 @@ async function getApplicationDetail() {
                 method: "PUT",
                 headers: {
                     "Content-Type" : "application/json",
+                    "nearu_token" : localStorage.getItem("nearu_token")
                 },
                 body: JSON.stringify({
                     "application_no" : response.app.application_no,
@@ -264,6 +276,7 @@ async function deleteApplication() {
             method: "DELETE",
             headers: {
                 "Content-Type" : "application/json",
+                "nearu_token" : localStorage.getItem("nearu_token")
             }
             
         })
@@ -280,7 +293,7 @@ async function editApplication() {
     let date = document.getElementById("date_input").value
     let dur_hour = document.getElementById("duration").value
 
-    
+
     let locations = document.getElementById("meet").innerText
     let details = document.getElementById("reasons").value
 
@@ -296,6 +309,7 @@ async function editApplication() {
         method: "PUT",
         headers: {
             "Content-Type" : "application/json",
+            "nearu_token" : localStorage.getItem("nearu_token")
         },
         body: JSON.stringify({
             "d_day" : date,
