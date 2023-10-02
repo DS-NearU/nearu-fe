@@ -22,12 +22,9 @@ async function signIn() {
 
     localStorage.setItem("nearu_token", response.session_key)
     
-    
-
-
-
-
 }
+
+
 
 function SHA256(s){
     

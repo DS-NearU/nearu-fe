@@ -1,6 +1,7 @@
 async function getProfile() {
-    let url = "http://210.109.62.129:8080/profile?user_id=nearu"
+    let url = "http://127.0.0.1:8080/profile"
     let profile;
+    console.log(localStorage.getItem("nearu_token"))
     await fetch(url, {
         headers : {
             "Content-Type": "application/json",
@@ -9,8 +10,10 @@ async function getProfile() {
     }).then((response) => response.json()).then((data) => {
         profile = data; 
     })
+    
 
-    // console.log(profile) --> 값이 id에 따라 제대로 불려오는지 확인
+    console.log(profile)// --> 값이 id에 따라 제대로 불려오는지 확인
+
 
     const name = profile.name
     const email = profile.email
@@ -34,7 +37,7 @@ async function getProfile() {
 
 async function editProfile() {
     
-    let url = "http://210.109.62.129:8080/profile?user_id=nearu"
+    let url = "http://127.0.0.1:8080/profile"
 
     let name = document.getElementById("name").value
     let email = document.getElementById("email").value
@@ -86,8 +89,8 @@ function checkFilled() {
 
 // View/Get --> 즉 fetch사용
 async function getNotification() {
-    let url = "http://127.0.0.1:8080/notifications?user_id=nearu"
-    let url_two = "http://127.0.0.1:8080/favorites?user_id=nearu"
+    let url = "http://127.0.0.1:8080/notifications"
+    let url_two = "http://127.0.0.1:8080/favorites"
     let notification;
     let favorites;
     await fetch(url, {
@@ -227,7 +230,7 @@ function addField() {
 }
 
 async function postFavorites() { // 버튼을 눌렀을때
-    let url = "http://127.0.0.1:8080/notifications?user_id=nearu"
+    let url = "http://127.0.0.1:8080/notifications"
 
     let favorites = [];
     let email;
