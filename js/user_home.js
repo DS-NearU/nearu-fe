@@ -330,6 +330,7 @@ function editButtonPressed(){
 
     $('#dur_hour').css('display', 'none');
     $('#details').css('display', 'none');
+    $('#start_time').css('display', 'block');
     $('#duration').css('display', 'inline-block');
     $('#add_button').css('display', 'inline-block');
     $('#reasons').css('display', 'inline-block');
