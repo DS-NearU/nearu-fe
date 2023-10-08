@@ -9,7 +9,7 @@ function checkValidation() {
         alert("check again")
     }
 }
-function checkPassword()
+function checkPassword_volunteer()
 {
     let aPassword = document.getElementById("password1").value
     let rPassword = document.getElementById("password2").value
@@ -17,7 +17,7 @@ function checkPassword()
     let address = email.substring(email.indexOf("@") + 1)
     if (aPassword===rPassword && address==="daltonschool.kr") {
         console.log('match!')
-        signup()
+        signup_volunteer()
         location.href="./signup_fifth.html"
     }
     else if(address==="daltonschool.kr"){
@@ -26,6 +26,23 @@ function checkPassword()
     else
     {
         alert("Only CDS students can sign up.")
+    }
+}
+
+function checkPassword_patient()
+{
+    let aPassword = document.getElementById("password1").value
+    let rPassword = document.getElementById("password2").value
+    let email = document.getElementById("email").value
+    let address = email.substring(email.indexOf("@") + 1)
+    if (aPassword===rPassword) {
+        console.log('match!')
+        signup_patient()
+        location.href="./signup_fifth.html"
+    }
+    else
+    {
+        alert("Password does not match.")
     }
 }
 
@@ -47,7 +64,7 @@ function checkFilled()
     }
 }
 
-async function signup() {
+async function signup_volunteer() {
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
     let id = document.getElementById("id").value;
@@ -85,7 +102,53 @@ async function signup() {
             "phone_num" : phone_num,
             "address" : address,
             "presentation" : self_intro,
+            "conditions" : conditions,
+            "type" : "volunteer"
+        })
+    })
+}
+
+
+async function signup_patient() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let id = document.getElementById("id").value;
+    let password1 = document.getElementById("password1").value;
+    let phone_num = document.getElementById("phone_num").value;
+    let address = document.getElementById("address").value;
+    let self_intro = document.getElementById("self_intro").value;
+    let conditions = document.getElementById("conditions").value;
+
+
+    let body = {
+            "name" : name,
+            "email" : email,
+            "user_id": id,
+            "password" : SHA256(password1),
+            "phone_num" : phone_num,
+            "address" : address,
+            "presentation" : self_intro,
             "conditions" : conditions
+        }
+
+    let url = "http://127.0.0.1:8080/sign-up"
+    console.log(body)
+    
+    await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "name" : name,
+            "email" : email,
+            "user_id": id,
+            "password" : SHA256(password1),
+            "phone_num" : phone_num,
+            "address" : address,
+            "presentation" : self_intro,
+            "conditions" : conditions,
+            "type" : "patient"
         })
     })
 }

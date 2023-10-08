@@ -100,7 +100,7 @@ async function getUserApplication() { // 전체 다 보기
                 let card = document.createElement("DIV")
                 card.className = 'card'
                 let name = document.createElement("DIV")
-                name.innerText = `이름 : ${e.admin.user_info.name}`
+                name.innerText = `이름 : ${e.name}`
                 let date = document.createElement("DIV")
                 let d_day = new Date(e.dday)
                 date.innerText = `${toStringByFormatting(d_day)} ${d_day.toLocaleTimeString()}`
@@ -297,7 +297,7 @@ async function editApplication() {
     let locations = document.getElementById("meet").innerText
     let details = document.getElementById("reasons").value
 
-    console.log(date)
+    console.log( $(".timepicker").timepicker("getTime") + ":00")
     console.log(dur_hour)
     console.log(locations)
     console.log(details)
@@ -312,7 +312,8 @@ async function editApplication() {
             "nearu_token" : localStorage.getItem("nearu_token")
         },
         body: JSON.stringify({
-            "d_day" : date,
+            
+            "d_day" : $.datepicker.formatDate("yy-mm-dd", $(".datepicker").datepicker("getDate")) + " " + $(".timepicker").timepicker("getTime") + ":00",
             "duration_hours" : dur_hour,
             "location" : locations,
             "conditions" : details,

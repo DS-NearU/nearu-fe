@@ -20,8 +20,16 @@ async function signIn() {
         response = data; 
     })
 
+
     localStorage.setItem("nearu_token", response.session_key)
     
+    if (response.user_status_type_code == "patient") {
+        window.location.href = "../user/user_home.html"
+    }
+    else {
+        window.location.href = "../user/stud_home.html"
+    }
+
 }
 
 

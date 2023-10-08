@@ -50,7 +50,8 @@ async function getAllApplication() {
             const date_value = dday_day + ", " + dday_year + "/" + dday_month + "/" + dday_date
             const elapse = ("0" + dday_hour).slice(-2) + ":" + ("0" + dday_min).slice(-2) + " - " + ("0" + (dday_hour+e.app.duration_hours)).slice(-2) + ":" + ("0" + dday_min).slice(-2)
 
-            name.innerHTML = `${e.app.admin.user_info.name}`
+            console.log(e)
+            name.innerHTML = `${e.name}`
             date.innerHTML = `${date_value}`
             time.innerHTML = `${elapse}`
             location.innerHTML = `${e.app.location}`
@@ -112,7 +113,7 @@ async function getStudVerAppDetail() {
         dday_day = "Saturday"
     }
 
-    const name = response.app.admin.user_info.name
+    const name = response.name
     const date = dday_day + ", " + dday_year + "/" + ("0" + dday_month).slice(-2) + "/" + ("0" + dday_date).slice(-2)
     const meeting_time = ("0" + dday_hour).slice(-2) + ":" + ("0" + dday_min).slice(-2)
     const duration = response.app.duration_hours + " hours" //소요시간
@@ -144,9 +145,9 @@ async function getStudVerAppDetail() {
 }
 
 async function registerApp() {
-    const application_no = location.href.split('?')[1];
+    const application_no = location.href.split('=')[1];
     const user_no = location.href.split('&')[1];
-    let url = `http://127.0.0.1:8080/register?${application_no}&${user_no}`
+    let url = `http://127.0.0.1:8080/register`
 
     await fetch(url, {
         method: "POST",
@@ -156,22 +157,26 @@ async function registerApp() {
         },
         body: JSON.stringify({
             "application_no" : application_no,
-            "user_no": user_no
         })
     })
 }
 
 async function cancelRegister() {
-    const application_no = location.href.split('?')[1];
+    const application_no = location.href.split('=')[1];
+
     const user_no = location.href.split('&')[1];
-    let url = `http://127.0.0.1:8080/cancel?${application_no}&${user_no}`
+    let url = `http://127.0.0.1:8080/cancel`
 
     await fetch(url, {
         method: "DELETE",
         headers: {
             "Content-Type" : "application/json",
             "nearu_token" : localStorage.getItem("nearu_token")
-        }
+        },
+        body: JSON.stringify({
+            "application_no" : application_no,
+        })
+    
         
     })
 
